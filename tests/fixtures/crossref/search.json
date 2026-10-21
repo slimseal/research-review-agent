@@ -1,0 +1,29 @@
+{
+  "status": "ok",
+  "message-type": "work-list",
+  "message-version": "1.0.0",
+  "message": {
+    "total-results": 2,
+    "next-cursor": null,
+    "items": [
+      {
+        "DOI": "10.5555/fictional.alpha",
+        "title": ["Fictional alpha metadata record"],
+        "author": [{"given": "Ána", "family": "García"}],
+        "published-print": {"date-parts": [[2020, 1, 1]]},
+        "container-title": ["Fictional Metadata Journal"],
+        "type": "journal-article",
+        "URL": "https://doi.org/10.5555/fictional.alpha"
+      },
+      {
+        "DOI": "10.5555/fictional.beta.journal",
+        "title": ["虚构考古材料记录"],
+        "author": [{"given": "伟", "family": "李"}],
+        "published-online": {"date-parts": [[2001]]},
+        "container-title": ["Fictional Published Venue"],
+        "type": "journal-article",
+        "URL": "https://doi.org/10.5555/fictional.beta.journal"
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "2.0.0",
+  "project_id": "RRA-61BD6769E5",
+  "research_types": [
+    "historical_documentary"
+  ],
+  "fields": [
+    {
+      "name": "source_type",
+      "label": "source type",
+      "description": "Minute, register, correspondence, circular or other documented record type",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "creator_or_author",
+      "label": "creator or author",
+      "description": "Municipal office, committee or correspondent; distinguish institutional voice",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "creation_date",
+      "label": "creation date",
+      "description": "Document date and any retrospective reporting period",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "provenance",
+      "label": "provenance",
+      "description": "Custodial chain, repository and reproduction or transcription status",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "archival_context",
+      "label": "archival context",
+      "description": "Collection and series hierarchy plus survival and selection concerns",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "genre",
+      "label": "genre",
+      "description": "Administrative genre and communicative function",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "intended_audience",
+      "label": "intended audience",
+      "description": "Internal officials, households or public audience as supported by the record",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "authenticity_assessment",
+      "label": "authenticity assessment",
+      "description": "Basis and limits for identifying record origin and integrity",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "corroboration",
+      "label": "corroboration",
+      "description": "Independent records consulted or explicitly not yet available",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "silences_or_absences",
+      "label": "silences or absences",
+      "description": "Whose experiences or administrative categories are absent without presuming absence in lived experience",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "interpretive_context",
+      "label": "interpretive context",
+      "description": "Framing language linked to administrative purpose and period",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "historical_documentary"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    }
+  ]
+}

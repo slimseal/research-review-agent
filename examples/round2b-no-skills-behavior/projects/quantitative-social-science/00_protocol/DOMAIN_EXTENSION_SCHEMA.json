@@ -1,0 +1,86 @@
+{
+  "schema_version": "2.0.0",
+  "project_id": "RRA-0EE88393DC",
+  "research_types": [
+    "quantitative_empirical"
+  ],
+  "fields": [
+    {
+      "name": "population",
+      "label": "population",
+      "description": "Retail role, hourly-pay eligibility, jurisdiction and sample selection",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "study_design",
+      "label": "study design",
+      "description": "Cross-sectional, panel or evaluation design and measurement timing",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "measurement",
+      "label": "measurement",
+      "description": "Schedule dimensions, intention scale wording, recall period and outcome direction",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "model_specification",
+      "label": "model specification",
+      "description": "Adjustment set, clustering, missing-data handling and model scale",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "effect_size",
+      "label": "effect size",
+      "description": "Reported association and scale only; no conversion without sufficient source information",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "uncertainty",
+      "label": "uncertainty",
+      "description": "Reported interval or standard error and its level",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "identification_basis",
+      "label": "identification basis",
+      "description": "Association, prediction or explicit causal-identification assumptions; never infer causality from adjustment",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    }
+  ]
+}

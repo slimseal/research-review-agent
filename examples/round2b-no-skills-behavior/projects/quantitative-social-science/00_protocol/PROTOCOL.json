@@ -1,0 +1,216 @@
+{
+  "schema_version": "2.0.0",
+  "protocol_version": "0.1-draft",
+  "project_id": "RRA-0EE88393DC",
+  "title": "DEMONSTRATION / behavior test — quantitative social science",
+  "research_question": "How is schedule predictability associated with job retention intentions among hourly retail workers?",
+  "domain": "quantitative social science",
+  "review_type": "rigorous_narrative_or_thematic",
+  "research_types": [
+    "quantitative_empirical"
+  ],
+  "status": "draft",
+  "created_at": "2026-10-15T09:48:36+00:00",
+  "approved_at": null,
+  "approved_by": null,
+  "scope": {
+    "units_of_analysis": [
+      "Hourly retail workers; worker-level measurements nested within stores or employers"
+    ],
+    "phenomena_or_topics": [
+      "Schedule predictability and intention to remain with the current employer"
+    ],
+    "relationships_or_questions": [
+      "Which dimensions of schedule predictability are measured, and over what recall period?",
+      "How are intentions to stay or leave operationalized, including their time horizon?",
+      "How do adjusted and unadjusted associations vary by study design and worker or workplace context?",
+      "What selection, reverse-causation and measurement limitations constrain interpretation?"
+    ],
+    "contexts": [
+      "Retail employment; distinguish store formats, employment contracts and labor-market settings"
+    ],
+    "geographic_scope": [
+      "No geographic restriction proposed; retain jurisdiction and labor regulation context"
+    ],
+    "temporal_scope": "No publication-year restriction proposed; record data-collection period and distinguish contemporaneous from longitudinal measurements",
+    "languages": [
+      "Proposed initial English screening; other languages flagged for human translation decision"
+    ],
+    "source_types": [
+      "Original quantitative surveys, panel studies and workplace evaluations with separable retail-worker results"
+    ]
+  },
+  "subquestions": [
+    "Which dimensions of schedule predictability are measured, and over what recall period?",
+    "How are intentions to stay or leave operationalized, including their time horizon?",
+    "How do adjusted and unadjusted associations vary by study design and worker or workplace context?",
+    "What selection, reverse-causation and measurement limitations constrain interpretation?"
+  ],
+  "concept_definitions": [
+    {
+      "concept": "schedule predictability",
+      "definition": "Advance notice, stability of scheduled hours, and employer-initiated last-minute changes; distinguish predictability from total hours and worker-controlled flexibility",
+      "label": "schedule predictability",
+      "term": "schedule predictability"
+    },
+    {
+      "concept": "retention intentions",
+      "definition": "Stated intention to stay with the current employer; turnover intention is coded with its original direction and is not observed retention",
+      "label": "retention intentions",
+      "term": "retention intentions"
+    },
+    {
+      "concept": "hourly retail workers",
+      "definition": "Employees paid by the hour in retail establishments; mixed-sector samples need separately extractable retail results",
+      "label": "hourly retail workers",
+      "term": "hourly retail workers"
+    }
+  ],
+  "concept_blocks": [
+    {
+      "name": "schedule predictability",
+      "terms": [
+        "schedule predictability",
+        "advance notice",
+        "schedule instability",
+        "last-minute schedule changes"
+      ],
+      "rationale": "Advance notice, stability of scheduled hours, and employer-initiated last-minute changes; distinguish predictability from total hours and worker-controlled flexibility",
+      "label": "schedule predictability"
+    },
+    {
+      "name": "retention intentions",
+      "terms": [
+        "intention to stay",
+        "retention intention",
+        "turnover intention",
+        "intention to quit"
+      ],
+      "rationale": "Stated intention to stay with the current employer; turnover intention is coded with its original direction and is not observed retention",
+      "label": "retention intentions"
+    },
+    {
+      "name": "hourly retail workers",
+      "terms": [
+        "hourly workers",
+        "retail employees",
+        "retail workers"
+      ],
+      "rationale": "Employees paid by the hour in retail establishments; mixed-sector samples need separately extractable retail results",
+      "label": "hourly retail workers"
+    }
+  ],
+  "screening": {
+    "criteria_version": "0.1-draft",
+    "include": [
+      "Original quantitative evidence jointly measuring schedule predictability and current-employer retention or turnover intentions among hourly retail workers",
+      "Mixed-sector or mixed-pay samples only when relevant subgroup results are extractable",
+      "Cross-sectional and longitudinal designs retained separately, with measurement and adjustment information recoverable from full text"
+    ],
+    "exclude": [
+      "Actual turnover alone without an intention measure",
+      "Hours quantity, wages or flexibility alone without a predictability dimension",
+      "Non-retail or salaried-only samples without an eligible subgroup; commentary without original quantitative evidence"
+    ]
+  },
+  "search": {
+    "databases": [
+      "Proposed: multidisciplinary scholarly index",
+      "Proposed: employment and social-science bibliographic index"
+    ],
+    "strategy_groups": [
+      "Combine scheduling synonyms with retail-worker terms, then add intention terms as a precision variant; compare coverage before choosing final syntax",
+      "Plan backward and forward tracing from eligible sources only after authorized discovery; retain all association directions"
+    ],
+    "status": "planned_not_executed"
+  },
+  "evidence_extensions": [
+    {
+      "name": "population",
+      "label": "population",
+      "description": "Retail role, hourly-pay eligibility, jurisdiction and sample selection",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "study_design",
+      "label": "study design",
+      "description": "Cross-sectional, panel or evaluation design and measurement timing",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "measurement",
+      "label": "measurement",
+      "description": "Schedule dimensions, intention scale wording, recall period and outcome direction",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "model_specification",
+      "label": "model specification",
+      "description": "Adjustment set, clustering, missing-data handling and model scale",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "effect_size",
+      "label": "effect size",
+      "description": "Reported association and scale only; no conversion without sufficient source information",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "uncertainty",
+      "label": "uncertainty",
+      "description": "Reported interval or standard error and its level",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "identification_basis",
+      "label": "identification basis",
+      "description": "Association, prediction or explicit causal-identification assumptions; never infer causality from adjustment",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    }
+  ],
+  "human_decisions": {
+    "resolved": [
+      "User specified the exact question and requested a demonstration protocol behavior test only; no retrieval, findings or approval authorized."
+    ],
+    "pending": [
+      "Human review: approve global coverage and English-language initial screening with other languages flagged for translation rather than silently excluded",
+      "Human review: decide whether store-manager hourly roles and gig retail work fall within scope",
+      "Human review: confirm that intentions, rather than actual retention, remain the focal endpoint"
+    ]
+  }
+}

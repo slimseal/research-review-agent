@@ -1,0 +1,238 @@
+{
+  "schema_version": "2.0.0",
+  "protocol_version": "0.1-draft",
+  "project_id": "RRA-DBE10B9E51",
+  "title": "DEMONSTRATION / behavior test — qualitative education",
+  "research_question": "How do adult literacy tutors describe adapting feedback for multilingual learners?",
+  "domain": "qualitative education",
+  "review_type": "rigorous_narrative_or_thematic",
+  "research_types": [
+    "qualitative_empirical"
+  ],
+  "status": "draft",
+  "created_at": "2026-10-15T09:48:36+00:00",
+  "approved_at": null,
+  "approved_by": null,
+  "scope": {
+    "units_of_analysis": [
+      "Tutor accounts and situated feedback episodes in adult literacy teaching"
+    ],
+    "phenomena_or_topics": [
+      "Tutors’ descriptions of adapting feedback for learners using multiple languages"
+    ],
+    "relationships_or_questions": [
+      "What do tutors count as feedback and adaptation in adult literacy learning?",
+      "How do tutors explain language choice, timing, modality and directness of feedback?",
+      "What tensions or constraints do tutors describe, and what discrepant accounts occur?",
+      "How do program setting, tutor experience and language repertoire shape the transferability of accounts?"
+    ],
+    "contexts": [
+      "Community, voluntary and formal adult literacy provision; retain tutor training and learner language context"
+    ],
+    "geographic_scope": [
+      "No geographic restriction proposed; compare institutional and language-policy settings"
+    ],
+    "temporal_scope": "No publication-year restriction proposed; record fieldwork dates and program changes",
+    "languages": [
+      "Proposed initial English screening; other languages flagged for human translation decision"
+    ],
+    "source_types": [
+      "Original qualitative interview, focus-group, observational and reflective accounts with tutor voice identifiable"
+    ]
+  },
+  "subquestions": [
+    "What do tutors count as feedback and adaptation in adult literacy learning?",
+    "How do tutors explain language choice, timing, modality and directness of feedback?",
+    "What tensions or constraints do tutors describe, and what discrepant accounts occur?",
+    "How do program setting, tutor experience and language repertoire shape the transferability of accounts?"
+  ],
+  "concept_definitions": [
+    {
+      "concept": "adult literacy tutors",
+      "definition": "Paid or volunteer educators supporting adult reading and writing; not school-age teachers unless adult provision is separable",
+      "label": "adult literacy tutors",
+      "term": "adult literacy tutors"
+    },
+    {
+      "concept": "adaptive feedback",
+      "definition": "Responses to learner work or understanding adjusted in language, timing, modality or interaction; exclude generic differentiation with no feedback episode",
+      "label": "adaptive feedback",
+      "term": "adaptive feedback"
+    },
+    {
+      "concept": "multilingual learners",
+      "definition": "Adults using or learning across multiple languages; do not presume migration status or treat multilingualism as a deficit",
+      "label": "multilingual learners",
+      "term": "multilingual learners"
+    }
+  ],
+  "concept_blocks": [
+    {
+      "name": "adult literacy tutors",
+      "terms": [
+        "adult literacy tutor",
+        "adult basic education teacher",
+        "literacy volunteer"
+      ],
+      "rationale": "Paid or volunteer educators supporting adult reading and writing; not school-age teachers unless adult provision is separable",
+      "label": "adult literacy tutors"
+    },
+    {
+      "name": "adaptive feedback",
+      "terms": [
+        "feedback",
+        "response to writing",
+        "corrective feedback",
+        "formative feedback"
+      ],
+      "rationale": "Responses to learner work or understanding adjusted in language, timing, modality or interaction; exclude generic differentiation with no feedback episode",
+      "label": "adaptive feedback"
+    },
+    {
+      "name": "multilingual learners",
+      "terms": [
+        "multilingual",
+        "plurilingual",
+        "additional language",
+        "language repertoire"
+      ],
+      "rationale": "Adults using or learning across multiple languages; do not presume migration status or treat multilingualism as a deficit",
+      "label": "multilingual learners"
+    }
+  ],
+  "screening": {
+    "criteria_version": "0.1-draft",
+    "include": [
+      "Original qualitative material about tutors in adult literacy provision describing feedback adaptations for multilingual learners",
+      "Mixed-method studies only for separately identifiable qualitative tutor accounts",
+      "Learner or observational material may contextualize tutor accounts but must remain attributed to its own perspective"
+    ],
+    "exclude": [
+      "School-child-only teaching or higher-education disciplinary writing without adult literacy provision",
+      "Learner-only accounts with no tutor description relevant to the question",
+      "Quantitative effectiveness scores without qualitative accounts; generic multilingual pedagogy with no feedback adaptation"
+    ]
+  },
+  "search": {
+    "databases": [
+      "Proposed: education bibliographic index",
+      "Proposed: multidisciplinary qualitative-research coverage"
+    ],
+    "strategy_groups": [
+      "Combine adult-literacy educator terms with feedback terms; use multilingual terminology as an additional family to avoid assuming all authors use the same label",
+      "Plan reference tracing and program terminology expansion after discovery; do not require a qualitative-method label in every query"
+    ],
+    "status": "planned_not_executed"
+  },
+  "evidence_extensions": [
+    {
+      "name": "participants_or_cases",
+      "label": "participants or cases",
+      "description": "Tutor role, experience, repertoire and program characteristics as reported",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "sampling_strategy",
+      "label": "sampling strategy",
+      "description": "Case selection and whose accounts are absent",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "data_collection",
+      "label": "data collection",
+      "description": "Interview, focus group, observation or reflective material and elicitation context",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "analytic_approach",
+      "label": "analytic approach",
+      "description": "Source analytic method and how interpretations were developed",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "researcher_positioning",
+      "label": "researcher positioning",
+      "description": "Relationship to tutors and institutions where reported",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "participant_voice",
+      "label": "participant voice",
+      "description": "Tutor quotation with exact locator, separated from author paraphrase",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "theme_or_interpretation",
+      "label": "theme or interpretation",
+      "description": "Source interpretation distinguished from later reviewer interpretation",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "negative_case",
+      "label": "negative case",
+      "description": "Discrepant account or explicit absence of its reporting",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "transferability_context",
+      "label": "transferability context",
+      "description": "Program, learner-language context and limits on transfer",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    }
+  ],
+  "human_decisions": {
+    "resolved": [
+      "User specified the exact question and requested a demonstration protocol behavior test only; no retrieval, findings or approval authorized."
+    ],
+    "pending": [
+      "Human review: decide whether adult language courses without an explicit literacy remit are eligible",
+      "Human review: confirm inclusion of volunteer tutors and unpublished practitioner research",
+      "Human review: approve initial English screening and arrangements for other-language accounts"
+    ]
+  }
+}

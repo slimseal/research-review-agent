@@ -1,0 +1,65 @@
+{
+  "schema_version": "2.0.0",
+  "title": "Fictional quantitative social-science protocol test",
+  "domain": "social-sciences",
+  "review_type": "rigorous_narrative_or_thematic",
+  "research_types": ["quantitative_empirical"],
+  "scope": {
+    "units_of_analysis": ["adult residents in urban neighborhoods"],
+    "phenomena_or_topics": ["access to neighborhood green space", "perceived social cohesion"],
+    "relationships_or_questions": ["association between green-space access and perceived social cohesion"],
+    "contexts": ["urban communities"],
+    "geographic_scope": ["not restricted in this fictional test configuration"],
+    "temporal_scope": "No default limit; justify during search design",
+    "languages": ["English"],
+    "source_types": ["quantitative observational studies", "mixed-method studies with separable quantitative evidence", "relevant reviews"]
+  },
+  "subquestions": [
+    "How is access defined and measured?",
+    "How is perceived social cohesion conceptualized and measured?",
+    "Which comparison groups and confounders are used?",
+    "Under which contexts and population conditions do estimates differ?",
+    "Which study designs support stronger or weaker inferences?"
+  ],
+  "concept_definitions": [
+    {"id": "D1", "label": "Green-space access", "definition": "A reported spatial, physical, or perceived opportunity to use neighborhood green space.", "boundaries": "Exposure measures must be retained in their original operational form."},
+    {"id": "D2", "label": "Perceived social cohesion", "definition": "Residents' reported sense of trust, belonging, reciprocity, or community connection.", "boundaries": "Objective network structure alone is not treated as the same construct."}
+  ],
+  "concept_blocks": [
+    {"id": "C1", "label": "Place-based exposure", "terms": ["urban green space", "neighborhood park", "public green area"]},
+    {"id": "C2", "label": "Social outcome", "terms": ["social cohesion", "sense of community", "neighbor trust"]},
+    {"id": "C3", "label": "Population and setting", "terms": ["urban resident", "neighborhood", "city"]}
+  ],
+  "screening": {
+    "criteria_version": "0.1-draft",
+    "include": [
+      "Estimates or reports a quantitative relationship between an approved green-space access measure and perceived social cohesion",
+      "Reports sufficient population, setting, design, and measurement information for its assigned review role"
+    ],
+    "exclude": [
+      "Uses a target term only incidentally",
+      "Reports no separable quantitative evidence relevant to the approved relationship"
+    ]
+  },
+  "search": {
+    "databases": [],
+    "strategy_groups": [
+      {"id": "S1", "name": "Exposure-outcome association", "purpose": "Locate quantitative studies linking green-space access with perceived social cohesion.", "concept_blocks": ["C1", "C2", "C3"]},
+      {"id": "S2", "name": "Measurement studies", "purpose": "Locate studies evaluating operationalizations of the two focal constructs.", "concept_blocks": ["C1", "C2"]}
+    ],
+    "status": "planned_not_executed"
+  },
+  "evidence_extensions": [
+    {"name": "population", "label": "Population", "description": "Population represented by the estimate.", "type": "string", "required": true, "research_types": ["quantitative_empirical"]},
+    {"name": "sample_size", "label": "Sample size", "description": "Analyzed sample size for the estimate.", "type": "integer", "required": false, "research_types": ["quantitative_empirical"]},
+    {"name": "predictor_or_exposure", "label": "Predictor or exposure", "description": "Operational green-space access measure.", "type": "string", "required": true, "research_types": ["quantitative_empirical"]},
+    {"name": "outcome", "label": "Outcome", "description": "Operational perceived social-cohesion measure.", "type": "string", "required": true, "research_types": ["quantitative_empirical"]},
+    {"name": "effect_size", "label": "Effect size", "description": "Reported estimate and scale, when applicable.", "type": "string", "required": false, "research_types": ["quantitative_empirical"]},
+    {"name": "construct_operationalization", "label": "Construct operationalization", "description": "How each focal construct is defined and measured.", "type": "string", "required": true, "research_types": ["quantitative_empirical"]},
+    {"name": "confounders", "label": "Confounders", "description": "Confounders considered or omitted by the study.", "type": "array", "required": false, "research_types": ["quantitative_empirical"]}
+  ],
+  "human_decisions": {
+    "resolved": ["This file is fictional test configuration and performs no search."],
+    "pending": []
+  }
+}

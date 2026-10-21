@@ -1,0 +1,119 @@
+{
+  "schema_version": "2.0.0",
+  "project_id": "RRA-27575D09FA",
+  "research_types": [
+    "archaeological_material"
+  ],
+  "fields": [
+    {
+      "name": "material_class",
+      "label": "material class",
+      "description": "Tool form, lithology and analyzed surface characteristics",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "provenience",
+      "label": "provenience",
+      "description": "Site, unit and artifact identifier where reported",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "stratigraphic_context",
+      "label": "stratigraphic context",
+      "description": "Depositional association and relation to settlement activities",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "chronology",
+      "label": "chronology",
+      "description": "Regional dating framework and early-farming attribution",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "dating_method",
+      "label": "dating method",
+      "description": "Direct or associated dating and uncertainty",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "context_integrity",
+      "label": "context integrity",
+      "description": "Disturbance, reuse and association reliability",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "taphonomic_considerations",
+      "label": "taphonomic considerations",
+      "description": "Weathering, burial alteration, cleaning and preservation effects",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "analytical_technique",
+      "label": "analytical technique",
+      "description": "Magnification, instrument, surface preparation and wear recording criteria",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "assemblage_relation",
+      "label": "assemblage relation",
+      "description": "Tool-level observation versus assemblage sampling and spatial association",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "comparative_reference",
+      "label": "comparative reference",
+      "description": "Experimental material, worked substances, task and match limitations",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    }
+  ]
+}

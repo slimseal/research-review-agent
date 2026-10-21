@@ -1,0 +1,20 @@
+{
+  "meta": {"count": 3, "per_page": 2, "next_cursor": null},
+  "results": [
+    {
+      "id": "https://openalex.org/W900000003",
+      "doi": "doi:10.5555/FICTIONAL.GAMMA",
+      "display_name": "Fictional gamma metadata record",
+      "publication_year": 2021,
+      "type": "article",
+      "authorships": [{"author": {"display_name": "Test Author"}}],
+      "primary_location": {
+        "landing_page_url": "https://example.invalid/gamma",
+        "version": "publishedVersion",
+        "source": {"display_name": "Fictional Metadata Journal"}
+      },
+      "abstract_inverted_index": {"Fixture": [0], "text": [1]},
+      "ids": {"openalex": "https://openalex.org/W900000003", "doi": "doi:10.5555/FICTIONAL.GAMMA"}
+    }
+  ]
+}

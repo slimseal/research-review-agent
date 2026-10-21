@@ -1,0 +1,36 @@
+{
+  "schema_version": "2.0.0",
+  "design": "A small universal evidence core is combined with zero or more research-type extensions selected by the approved protocol.",
+  "backward_compatibility": {
+    "1.x": "Existing projects retain the legacy quantitative-leaning evidence columns and are validated without migration.",
+    "2.x": "New projects use the case-neutral universal evidence core and composable research-type extensions.",
+    "migration": "No automatic migration is performed. A future explicit migration must preserve original rows and create a reviewable mapping log."
+  },
+  "universal_core": {
+    "paper_registry": ["paper_id", "title", "authors", "year", "journal", "doi", "url", "pdf_path", "paper_type", "retrieval_source", "retrieval_date", "fulltext_available", "license", "sha256", "example_data", "extension_json"],
+    "screening": ["paper_id", "stage", "criteria_version", "decision", "exclusion_reason", "decision_basis", "evidence_available", "reviewer", "timestamp", "review_role", "priority", "example_data", "extension_json"],
+    "evidence": ["evidence_id", "paper_id", "research_question", "source_basis", "research_context", "evidence_type", "research_types", "finding_argument_proposition", "evidence_locator", "limitations_uncertainty", "verification_status", "example_data", "extension_json"],
+    "claim": ["claim_id", "claim", "supporting_evidence", "contradictory_evidence", "evidence_type", "evidence_strength", "boundary_conditions", "allowed_wording", "prohibited_overclaim", "confidence", "verdict", "example_data", "extension_json"]
+  },
+  "research_type_extensions": {
+    "quantitative_empirical": ["population", "sample_size", "study_design", "method", "predictor_or_exposure", "outcome", "effect_direction", "effect_size", "uncertainty", "mediator", "moderator", "comparison", "measurement", "model_specification", "identification_basis"],
+    "qualitative_empirical": ["participants_or_cases", "sampling_strategy", "recruitment_context", "data_collection", "analytic_approach", "researcher_positioning", "theme_or_interpretation", "participant_voice", "negative_case", "reflexivity", "transferability_context"],
+    "historical_documentary": ["source_type", "creator_or_author", "creation_date", "provenance", "archival_context", "genre", "intended_audience", "authenticity_assessment", "corroboration", "silences_or_absences", "temporal_distance", "interpretive_context"],
+    "theoretical_conceptual": ["proposition_type", "concepts", "definitions", "premises", "argument_structure", "inferential_link", "counterargument", "scope_conditions", "conceptual_contribution"],
+    "archaeological_material": ["material_class", "provenience", "stratigraphic_context", "chronology", "dating_method", "context_integrity", "taphonomic_considerations", "analytical_technique", "assemblage_relation", "comparative_reference"]
+  },
+  "composition_rule": "A protocol may select any compatible combination of research types. Each evidence row declares its applicable research_types as a JSON array. Required extension fields are enforced only when their declared research_types intersect the row types; selecting a type does not make every catalog field mandatory for unrelated rows.",
+  "extension_field_contract": {
+    "required_keys": ["name", "label", "description", "type", "required"],
+    "optional_keys": ["research_types", "applicability", "controlled_values"],
+    "allowed_types": ["string", "integer", "number", "boolean", "array", "object"],
+    "storage": "Each CSV row stores a JSON object in extension_json. It is validated against 00_protocol/DOMAIN_EXTENSION_SCHEMA.json."
+  },
+  "missing_value_policy": ["not_reported", "not_applicable", "uncertain", "not_reliably_extractable"],
+  "verification_statuses": ["unverified", "verified", "partially_verified", "contradicted", "not_auditable"],
+  "evidence_locator_contract": {
+    "format": "JSON array",
+    "fields": ["pdf_page", "printed_page", "section", "figure", "table", "archive_reference", "catalogue_reference", "object_reference", "evidence_note"],
+    "rule": "Every substantive record must use source-appropriate exact locators. Full-text records require a page, section, figure, or table; documentary or material records may additionally use archive, catalogue, or object references."
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": "2.0.0",
+  "project_id": "RRA-DBE10B9E51",
+  "research_types": [
+    "qualitative_empirical"
+  ],
+  "fields": [
+    {
+      "name": "participants_or_cases",
+      "label": "participants or cases",
+      "description": "Tutor role, experience, repertoire and program characteristics as reported",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "sampling_strategy",
+      "label": "sampling strategy",
+      "description": "Case selection and whose accounts are absent",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "data_collection",
+      "label": "data collection",
+      "description": "Interview, focus group, observation or reflective material and elicitation context",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "analytic_approach",
+      "label": "analytic approach",
+      "description": "Source analytic method and how interpretations were developed",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "researcher_positioning",
+      "label": "researcher positioning",
+      "description": "Relationship to tutors and institutions where reported",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "participant_voice",
+      "label": "participant voice",
+      "description": "Tutor quotation with exact locator, separated from author paraphrase",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "theme_or_interpretation",
+      "label": "theme or interpretation",
+      "description": "Source interpretation distinguished from later reviewer interpretation",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "negative_case",
+      "label": "negative case",
+      "description": "Discrepant account or explicit absence of its reporting",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "transferability_context",
+      "label": "transferability context",
+      "description": "Program, learner-language context and limits on transfer",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    }
+  ]
+}

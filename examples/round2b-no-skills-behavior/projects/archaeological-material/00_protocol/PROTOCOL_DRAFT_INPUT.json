@@ -1,0 +1,262 @@
+{
+  "title": "DEMONSTRATION / behavior test \u2014 archaeological and material research",
+  "domain": "archaeological and material research",
+  "review_type": "rigorous_narrative_or_thematic",
+  "research_types": [
+    "archaeological_material"
+  ],
+  "scope": {
+    "units_of_analysis": [
+      "Ground-stone tool surfaces and assemblages in early farming settlement contexts; experimental comparative surfaces"
+    ],
+    "phenomena_or_topics": [
+      "Microwear-based functional inference about plant-processing practices"
+    ],
+    "relationships_or_questions": [
+      "Which wear attributes and analytical procedures support proposed plant-processing functions?",
+      "How are experimental reference collections and alternative worked materials used to test attribution?",
+      "How do raw material, surface preservation, reuse and depositional context affect interpretability?",
+      "What can tool-level functional inference support about settlement practices, and which steps require independent contextual evidence?"
+    ],
+    "contexts": [
+      "Early farming settlements defined regionally through source chronology and subsistence context"
+    ],
+    "geographic_scope": [
+      "No regional restriction proposed; retain region-specific farming chronology rather than assume a universal Neolithic date"
+    ],
+    "temporal_scope": "Early farming defined in each regional archaeological context; no publication-year restriction proposed",
+    "languages": [
+      "Proposed initial English screening; other languages flagged for human translation decision"
+    ],
+    "source_types": [
+      "Original archaeological microwear analyses and relevant experimental reference studies; contextual assemblage and botanical reports where linked"
+    ]
+  },
+  "subquestions": [
+    "Which wear attributes and analytical procedures support proposed plant-processing functions?",
+    "How are experimental reference collections and alternative worked materials used to test attribution?",
+    "How do raw material, surface preservation, reuse and depositional context affect interpretability?",
+    "What can tool-level functional inference support about settlement practices, and which steps require independent contextual evidence?"
+  ],
+  "concept_definitions": [
+    {
+      "concept": "ground-stone tools",
+      "definition": "Tools shaped or used through grinding, pecking or abrasion, including grinding slabs and handstones; exclude chipped-stone-only assemblages",
+      "label": "ground-stone tools",
+      "term": "ground-stone tools"
+    },
+    {
+      "concept": "microwear analysis",
+      "definition": "Microscopic surface observations used for functional interpretation; record resolution, surface preparation and criteria rather than assume all polish is diagnostic",
+      "label": "microwear analysis",
+      "term": "microwear analysis"
+    },
+    {
+      "concept": "plant-processing practices",
+      "definition": "Actions such as grinding, pounding or dehusking plant materials; taxa and action specificity require independent warrant",
+      "label": "plant-processing practices",
+      "term": "plant-processing practices"
+    },
+    {
+      "concept": "early farming settlement",
+      "definition": "Settlement context with regionally explicit evidence of early cultivation or farming; no universal date boundary",
+      "label": "early farming settlement",
+      "term": "early farming settlement"
+    }
+  ],
+  "concept_blocks": [
+    {
+      "name": "ground-stone tools",
+      "terms": [
+        "ground stone",
+        "ground-stone",
+        "grinding stone",
+        "quern",
+        "handstone"
+      ],
+      "rationale": "Tools shaped or used through grinding, pecking or abrasion, including grinding slabs and handstones; exclude chipped-stone-only assemblages",
+      "label": "ground-stone tools"
+    },
+    {
+      "name": "microwear analysis",
+      "terms": [
+        "microwear",
+        "use wear",
+        "use-wear",
+        "micropolish",
+        "surface texture"
+      ],
+      "rationale": "Microscopic surface observations used for functional interpretation; record resolution, surface preparation and criteria rather than assume all polish is diagnostic",
+      "label": "microwear analysis"
+    },
+    {
+      "name": "plant-processing practices",
+      "terms": [
+        "plant processing",
+        "plant-processing",
+        "grinding",
+        "pounding",
+        "dehusking"
+      ],
+      "rationale": "Actions such as grinding, pounding or dehusking plant materials; taxa and action specificity require independent warrant",
+      "label": "plant-processing practices"
+    },
+    {
+      "name": "early farming settlement",
+      "terms": [
+        "early farming",
+        "early agricultural",
+        "Neolithic",
+        "settlement"
+      ],
+      "rationale": "Settlement context with regionally explicit evidence of early cultivation or farming; no universal date boundary",
+      "label": "early farming settlement"
+    }
+  ],
+  "screening": {
+    "criteria_version": "0.1-draft",
+    "include": [
+      "Original microwear investigation of ground-stone tools from contextually identified early farming settlements with traceable methods and functional reasoning",
+      "Experimental ground-stone studies testing plant and plausible alternative contact materials, retained as analogical reference rather than settlement evidence",
+      "Associated residues or botanical evidence only when their relationship to the analyzed tools or context is explicit"
+    ],
+    "exclude": [
+      "Chipped-stone-only analyses and macroscopic typology without microscopic functional evidence",
+      "Unprovenienced artifacts where settlement linkage cannot be established; classify uncertainty before exclusion",
+      "Plant-processing assertions based solely on tool shape, and experiments lacking relevant ground-stone surfaces"
+    ]
+  },
+  "search": {
+    "databases": [
+      "Proposed: archaeology bibliographic indexes",
+      "Proposed: multidisciplinary index and archaeological report repositories"
+    ],
+    "strategy_groups": [
+      "Combine ground-stone synonyms with microwear terms; use plant-processing and early-farming variants for targeted searches without requiring those interpretations in every broad query",
+      "Plan reference tracing for experimental comparison methods and linked excavation reports, separating analogical references from settlement cases"
+    ],
+    "status": "planned_not_executed"
+  },
+  "evidence_extensions": [
+    {
+      "name": "material_class",
+      "label": "material class",
+      "description": "Tool form, lithology and analyzed surface characteristics",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "provenience",
+      "label": "provenience",
+      "description": "Site, unit and artifact identifier where reported",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "stratigraphic_context",
+      "label": "stratigraphic context",
+      "description": "Depositional association and relation to settlement activities",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "chronology",
+      "label": "chronology",
+      "description": "Regional dating framework and early-farming attribution",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "dating_method",
+      "label": "dating method",
+      "description": "Direct or associated dating and uncertainty",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "context_integrity",
+      "label": "context integrity",
+      "description": "Disturbance, reuse and association reliability",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "taphonomic_considerations",
+      "label": "taphonomic considerations",
+      "description": "Weathering, burial alteration, cleaning and preservation effects",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "analytical_technique",
+      "label": "analytical technique",
+      "description": "Magnification, instrument, surface preparation and wear recording criteria",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "assemblage_relation",
+      "label": "assemblage relation",
+      "description": "Tool-level observation versus assemblage sampling and spatial association",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    },
+    {
+      "name": "comparative_reference",
+      "label": "comparative reference",
+      "description": "Experimental material, worked substances, task and match limitations",
+      "type": "string",
+      "required": false,
+      "research_types": [
+        "archaeological_material"
+      ],
+      "applicability": "Only applicable source-grounded evidence rows; use explicit missing-value categories when necessary"
+    }
+  ],
+  "human_decisions": {
+    "resolved": [
+      "User specified the exact question and requested a demonstration protocol behavior test only; no retrieval, findings or approval authorized."
+    ],
+    "pending": [
+      "Human review: decide regional coverage and operational early-farming boundaries before discovery",
+      "Human review: decide minimum reporting needed for surface preservation and analytical reproducibility",
+      "Human review: confirm inclusion of grey-literature excavation reports and translation arrangements"
+    ]
+  }
+}

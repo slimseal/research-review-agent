@@ -1,0 +1,113 @@
+{
+  "notice": "ALL PAPERS, PEOPLE, RESULTS AND SOURCES BELOW ARE FICTIONAL ENGINEERING DATA, NOT REAL RESEARCH.",
+  "question": "How do retrieval-task designs and learner contexts relate to retention and participation in the fictional instructional corpus?",
+  "papers": [
+    {
+      "alias": "A",
+      "title": "FICTIONAL A retrieval logs",
+      "context": "Synthetic urban adult evening classes; voluntary practice",
+      "limitations": "Selection and prior knowledge uncontrolled; no causal identification; immediate and delayed measures differ",
+      "evidence": [
+        {
+          "alias": "E1",
+          "source_text": "FICTIONAL A: Voluntary retrieval frequency was positively associated with immediate factual-test scores. Selection and prior knowledge were uncontrolled.",
+          "research_types": [
+            "quantitative_empirical"
+          ],
+          "inference_class": "associational",
+          "result_kind": "positive"
+        },
+        {
+          "alias": "E2",
+          "source_text": "FICTIONAL A: The association with delayed conceptual-transfer scores was null in the measured class; this was not an equivalence test.",
+          "research_types": [
+            "quantitative_empirical"
+          ],
+          "inference_class": "associational",
+          "result_kind": "null"
+        }
+      ]
+    },
+    {
+      "alias": "B",
+      "title": "FICTIONAL B timed recall comparison",
+      "context": "Synthetic rural adult classes; imposed timed retrieval",
+      "limitations": "Single synthetic classroom allocation; no inference beyond context; different outcome and delivery from A",
+      "evidence": [
+        {
+          "alias": "E3",
+          "source_text": "FICTIONAL B: Classes assigned timed retrieval had lower immediate free-recall scores than classes assigned restudy. This pattern conflicts with an unconditional benefit proposition, not with A's local observation.",
+          "research_types": [
+            "quantitative_empirical"
+          ],
+          "inference_class": "descriptive",
+          "result_kind": "negative"
+        }
+      ]
+    },
+    {
+      "alias": "C",
+      "title": "FICTIONAL C learner accounts",
+      "context": "Synthetic adult evening-course accounts of voluntary and timed practice",
+      "limitations": "Analyst-created fictional themes; no participant quotations; experiences do not estimate effects",
+      "evidence": [
+        {
+          "alias": "E4",
+          "source_text": "FICTIONAL C: Interpretive analysis associated voluntary practice with perceived autonomy, while timed tasks were described as pressure. These are analytic interpretations, not measured retention effects.",
+          "research_types": [
+            "qualitative_empirical"
+          ],
+          "inference_class": "interpretive",
+          "result_kind": "interpretation"
+        },
+        {
+          "alias": "E5",
+          "source_text": "FICTIONAL C: Accounts of participation were mixed, including engagement and withdrawal; neither theme was universal.",
+          "research_types": [
+            "qualitative_empirical"
+          ],
+          "inference_class": "interpretive",
+          "result_kind": "mixed"
+        }
+      ]
+    },
+    {
+      "alias": "D",
+      "title": "FICTIONAL D feedback proposition",
+      "context": "Synthetic conceptual model of retrieval and feedback",
+      "limitations": "No original empirical mechanism test; original secondary source not inspected",
+      "evidence": [
+        {
+          "alias": "E6",
+          "source_text": "FICTIONAL D: Feedback timing is proposed as a mechanism that could alter retrieval-task usefulness. The proposition has not been empirically tested in this source.",
+          "research_types": [
+            "theoretical_conceptual"
+          ],
+          "inference_class": "conceptual",
+          "result_kind": "argument"
+        },
+        {
+          "alias": "E7",
+          "source_text": "FICTIONAL D: An uninspected prior report is cited as suggesting a feedback advantage. This secondary statement does not independently verify that prior result.",
+          "research_types": [
+            "theoretical_conceptual"
+          ],
+          "inference_class": "conceptual",
+          "result_kind": "argument",
+          "citation_basis": "secondary_report",
+          "secondary_source_reference": "FICTIONAL uninspected prior report; deliberately no fabricated DOI"
+        },
+        {
+          "alias": "E8",
+          "source_text": "FICTIONAL D: Whether feedback explains the differing patterns in A and B is unresolved; no mediation estimate or comparative test is available.",
+          "research_types": [
+            "theoretical_conceptual"
+          ],
+          "inference_class": "conceptual",
+          "result_kind": "uncertain",
+          "extraction_status": "uncertain"
+        }
+      ]
+    }
+  ]
+}

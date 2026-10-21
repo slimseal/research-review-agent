@@ -1,0 +1,41 @@
+{
+  "title": "DEMONSTRATION ONLY - social media and political participation",
+  "domain": "social-sciences-demonstration",
+  "demonstration_notice": "Example data only. No papers, findings, claims, or gaps are verified.",
+  "review_type": "rigorous_narrative_or_thematic",
+  "scope": {
+    "population_or_units": ["university students", "college students", "higher-education students", "young adults where a university subsample is identifiable"],
+    "phenomenon_or_exposure": ["social media use", "political social media use", "political information exposure", "political discussion", "posting", "sharing", "commenting", "online mobilisation"],
+    "comparison": ["different forms and intensities of use"],
+    "outcomes_or_questions": ["political expression", "online activism", "protest participation", "voting", "campaign participation", "civic engagement", "political volunteering", "petition signing", "political organization membership"],
+    "context": ["higher education and relevant political contexts"],
+    "timeframe": "To be set by the demonstration user",
+    "languages": ["English"],
+    "study_types": ["empirical", "theoretical", "methodological", "review"]
+  },
+  "subquestions": [
+    "What forms of social media use are associated with political participation among university students?",
+    "Which forms of political participation appear most strongly related to social media use?",
+    "Through what mechanisms might social media influence political participation?",
+    "Under what social, political, or platform conditions does this relationship vary?",
+    "What methodological limitations prevent existing studies from establishing causal effects?"
+  ],
+  "concept_blocks": [
+    {"id": "C1", "label": "Social media", "terms": ["social media", "social networking sites", "SNS"]},
+    {"id": "C2", "label": "Political use", "terms": ["political social media use", "political content exposure", "political discussion"]},
+    {"id": "C3", "label": "Participation", "terms": ["political participation", "civic engagement", "political engagement"]},
+    {"id": "C4", "label": "Students", "terms": ["university students", "college students", "undergraduates"]}
+  ],
+  "screening": {
+    "criteria_version": "0.1-draft",
+    "include": ["Addresses the demonstration population, exposure, outcome, theory, or method role defined by the protocol"],
+    "exclude": ["Uses overlapping population or technology terms without relevance to an approved political-participation question"]
+  },
+  "evidence_extensions": [
+    {"name": "platform", "label": "Platform", "description": "Platform examined by the demonstration study.", "type": "string", "required": false},
+    {"name": "social_media_measure", "label": "Social media measure", "description": "How use is operationalized in the demonstration.", "type": "string", "required": true},
+    {"name": "participation_measure", "label": "Participation measure", "description": "How participation is operationalized in the demonstration.", "type": "string", "required": true},
+    {"name": "political_context", "label": "Political context", "description": "Political setting relevant to interpretation.", "type": "string", "required": false}
+  ]
+}
+

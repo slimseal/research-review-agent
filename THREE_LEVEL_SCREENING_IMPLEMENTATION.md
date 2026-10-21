@@ -1,0 +1,13 @@
+# Three-level implementation
+
+The ordinary Phase 6 procedure is the academic instruction; the CLI enforces record structure, permitted evidence packets and workflow state. No automatic classifier or personal Skill is used.
+
+1. Title: only title/basic metadata and source pointers are exposed. Potentially relevant titles advance; uncertain titles can advance. No missing-DOI exclusion rule exists. Known related versions remain separately identified.
+2. Abstract: a current non-excluded title record is required. The adapter's existing raw responses are inspected through canonical provenance. Crossref raw XML and OpenAlex inverted-index originals are retained alongside normalized text and raw SHA. No live lookup or generated substitute occurs. Missing abstracts must remain uncertain/deferred. Exact abstract facts and interpretive explanation are separate.
+3. Full-text eligibility: a current non-excluded abstract record is required; an explicit missing-abstract defer can advance to resolve eligibility. The existing DocumentVersion store validates PDF bytes and paper association. Unknown/wrong versions, absent authorization, missing files or insufficient text never become a successful include/exclude. Matching title/DOI, observed version and eligibility passages are required. A supplied paper ID or declared version label alone is insufficient. The researcher must interpret the observed version evidence; matching a string does not authenticate a document forensically.
+
+The existing bounded parser mechanically processes a document, but only 1–5 explicitly requested pages are returned and frozen in the eligibility packet. This does not invoke Phase 7, create reading notes, populate Evidence Matrix, interpret effects or synthesize findings. Page numbers are PDF-page indexes; printed page numbers are not invented. No OCR, layout reconstruction, systematic risk-of-bias appraisal or automatic relevance inference was added.
+
+The software can enforce which text enters a packet and whether a quoted fact occurs there. It cannot prove that a language model forgot prior context, that a human declaration is authentic, or that an academic interpretation is correct. Free-text explanations therefore require substantive researcher review. Four-domain tests establish contract neutrality, NOT four-domain screening accuracy.
+
+Implemented public operations: schema, criteria registration/approval, stage context, proposal import, original-packet inspection, human review/override/reopen, queue/status, historical exclusions, coverage, acquisition ledger, validation, Gate 1 and recovery. See `docs/screening-tooling.md` for complete usage.

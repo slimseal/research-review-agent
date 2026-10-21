@@ -1,0 +1,66 @@
+{
+  "schema_version": "2.0.0",
+  "title": "Fictional archaeology protocol test",
+  "domain": "archaeology",
+  "review_type": "rigorous_narrative_or_thematic",
+  "research_types": ["archaeological_material"],
+  "scope": {
+    "units_of_analysis": ["ceramic assemblages from coastal settlements"],
+    "phenomena_or_topics": ["petrographic characterization", "provenance inference", "exchange-network interpretation"],
+    "relationships_or_questions": ["how material characterization supports provenance and exchange interpretations"],
+    "contexts": ["Late Bronze Age coastal regions"],
+    "geographic_scope": ["to be confirmed by a human reviewer"],
+    "temporal_scope": "Publication dates to be justified during search design",
+    "languages": ["English"],
+    "source_types": ["archaeometric studies", "assemblage studies", "method papers", "relevant syntheses"]
+  },
+  "subquestions": [
+    "Which petrographic protocols are used to characterize the assemblages?",
+    "How are provenance groups defined and validated?",
+    "How are analytical results translated into exchange-network interpretations?",
+    "Which chronological, depositional, and sampling conditions limit comparison?",
+    "Where do methods or interpretations disagree?"
+  ],
+  "concept_definitions": [
+    {"id": "D1", "label": "Ceramic assemblage", "definition": "A documented group of archaeological ceramic material treated as an analytical unit.", "boundaries": "Decorative discussion without archaeological context is outside the core evidence role."},
+    {"id": "D2", "label": "Petrographic characterization", "definition": "Microscopic mineralogical and fabric analysis used to characterize ceramic material.", "boundaries": "Other compositional techniques may be contextual unless the protocol is amended."},
+    {"id": "D3", "label": "Exchange-network interpretation", "definition": "An inference about movement, distribution, or interaction grounded in material provenance evidence.", "boundaries": "Trade claims without a documented material-evidence link are not core evidence."}
+  ],
+  "concept_blocks": [
+    {"id": "C1", "label": "Material", "terms": ["ceramic", "pottery", "fabric"]},
+    {"id": "C2", "label": "Analytical approach", "terms": ["petrography", "thin section", "mineralogical characterization"]},
+    {"id": "C3", "label": "Interpretive target", "terms": ["provenance", "exchange network", "distribution"]},
+    {"id": "C4", "label": "Chronocultural context", "terms": ["Late Bronze Age", "coastal settlement"]}
+  ],
+  "screening": {
+    "criteria_version": "0.1-draft",
+    "include": [
+      "Examines relevant archaeological ceramic material or a method directly applicable to it",
+      "Provides enough provenance, chronology, method, or interpretation detail for its review role"
+    ],
+    "exclude": [
+      "Discusses ceramic objects without relevant analytical or exchange interpretation",
+      "Has no identifiable archaeological context or transferable method contribution"
+    ]
+  },
+  "search": {
+    "databases": [],
+    "strategy_groups": [
+      {"id": "S1", "name": "Material and analytical technique", "purpose": "Locate studies connecting ceramic assemblages with petrographic characterization.", "concept_blocks": ["C1", "C2"]},
+      {"id": "S2", "name": "Provenance and exchange interpretation", "purpose": "Locate interpretations linking characterized material to provenance or distribution.", "concept_blocks": ["C1", "C3", "C4"]}
+    ],
+    "status": "planned_not_executed"
+  },
+  "evidence_extensions": [
+    {"name": "material_class", "label": "Material class", "description": "Archaeological material or assemblage class.", "type": "string", "required": true, "research_types": ["archaeological_material"]},
+    {"name": "chronology", "label": "Chronology", "description": "Chronological assignment and resolution.", "type": "string", "required": true, "research_types": ["archaeological_material"]},
+    {"name": "provenience", "label": "Provenience", "description": "Findspot and depositional context.", "type": "string", "required": false, "research_types": ["archaeological_material"]},
+    {"name": "dating_method", "label": "Dating method", "description": "Method used to support chronological assignment.", "type": "string", "required": false, "research_types": ["archaeological_material"]},
+    {"name": "analytical_technique", "label": "Analytical technique", "description": "Material-analysis technique and protocol.", "type": "string", "required": true, "research_types": ["archaeological_material"]},
+    {"name": "taphonomic_considerations", "label": "Taphonomic considerations", "description": "Formation or preservation processes relevant to interpretation.", "type": "array", "required": false, "research_types": ["archaeological_material"]}
+  ],
+  "human_decisions": {
+    "resolved": ["This file is fictional test configuration and performs no search."],
+    "pending": []
+  }
+}

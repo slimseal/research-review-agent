@@ -1,0 +1,68 @@
+{
+  "schema_version": "2.0.0",
+  "title": "Fictional qualitative education protocol test",
+  "domain": "education",
+  "review_type": "rigorous_narrative_or_thematic",
+  "research_types": ["qualitative_empirical"],
+  "scope": {
+    "units_of_analysis": ["novice secondary-school teachers and their accounts"],
+    "phenomena_or_topics": ["negotiating classroom authority during the first year of teaching"],
+    "relationships_or_questions": ["how participants describe authority, identity, and classroom interaction"],
+    "contexts": ["culturally diverse secondary schools"],
+    "geographic_scope": ["not restricted in this fictional test configuration"],
+    "temporal_scope": "First year of teaching; publication dates to be justified during search design",
+    "languages": ["English"],
+    "source_types": ["interview studies", "ethnographies", "qualitative case studies", "relevant qualitative syntheses"]
+  },
+  "subquestions": [
+    "How do novice teachers define and describe classroom authority?",
+    "Which interactions or incidents do participants identify as shaping that authority?",
+    "How do school and cultural contexts enter participants' accounts?",
+    "How do qualitative methods and researcher positioning shape the interpretations?",
+    "Which tensions, negative cases, or divergent accounts are reported?"
+  ],
+  "concept_definitions": [
+    {"id": "D1", "label": "Novice teacher", "definition": "A teacher in the first year of professional classroom practice.", "boundaries": "Studies combining career stages must make first-year accounts separately interpretable."},
+    {"id": "D2", "label": "Classroom authority", "definition": "Participants' accounts of legitimacy, control, responsibility, and relational influence in the classroom.", "boundaries": "Formal job authority alone is insufficient without classroom experience or interpretation."},
+    {"id": "D3", "label": "Culturally diverse school", "definition": "A school context described by the source as culturally, linguistically, ethnically, or migration-background diverse.", "boundaries": "The source's operational description must be retained rather than normalized into one measure."}
+  ],
+  "concept_blocks": [
+    {"id": "C1", "label": "Career stage", "terms": ["novice teacher", "beginning teacher", "first-year teacher"]},
+    {"id": "C2", "label": "Experienced phenomenon", "terms": ["classroom authority", "teacher authority", "classroom legitimacy"]},
+    {"id": "C3", "label": "Context", "terms": ["culturally diverse school", "multicultural classroom", "linguistically diverse classroom"]},
+    {"id": "C4", "label": "Qualitative evidence", "terms": ["interview", "ethnography", "qualitative case study"]}
+  ],
+  "screening": {
+    "criteria_version": "0.1-draft",
+    "include": [
+      "Reports qualitative empirical accounts from first-year or separately identifiable novice secondary-school teachers",
+      "Addresses classroom authority or a directly defined equivalent in a culturally diverse school context",
+      "Provides enough data-collection and analytic detail to assess the interpretation"
+    ],
+    "exclude": [
+      "Reports only student achievement or classroom-management scores without participant interpretation",
+      "Combines career stages so first-year teacher accounts cannot be identified",
+      "Uses diversity or authority only as incidental background"
+    ]
+  },
+  "search": {
+    "databases": [],
+    "strategy_groups": [
+      {"id": "S1", "name": "Participant experience", "purpose": "Locate qualitative accounts of novice teachers negotiating classroom authority.", "concept_blocks": ["C1", "C2", "C4"]},
+      {"id": "S2", "name": "Context-sensitive accounts", "purpose": "Locate studies where cultural or linguistic diversity is part of the interpreted setting.", "concept_blocks": ["C1", "C2", "C3", "C4"]}
+    ],
+    "status": "planned_not_executed"
+  },
+  "evidence_extensions": [
+    {"name": "participants_or_cases", "label": "Participants or cases", "description": "Who or what supplied the qualitative accounts.", "type": "string", "required": true, "research_types": ["qualitative_empirical"]},
+    {"name": "sampling_strategy", "label": "Sampling strategy", "description": "How participants or cases were selected.", "type": "string", "required": false, "research_types": ["qualitative_empirical"]},
+    {"name": "data_collection", "label": "Data collection", "description": "Interview, observation, document, or combined data collection.", "type": "string", "required": true, "research_types": ["qualitative_empirical"]},
+    {"name": "analytic_approach", "label": "Analytic approach", "description": "How qualitative materials were interpreted.", "type": "string", "required": true, "research_types": ["qualitative_empirical"]},
+    {"name": "researcher_positioning", "label": "Researcher positioning", "description": "Reported positionality or researcher relationship to the setting.", "type": "string", "required": false, "research_types": ["qualitative_empirical"]},
+    {"name": "negative_case", "label": "Negative case", "description": "Divergent or disconfirming account relevant to the interpretation.", "type": "string", "required": false, "research_types": ["qualitative_empirical"]}
+  ],
+  "human_decisions": {
+    "resolved": ["This file is fictional test configuration and performs no search."],
+    "pending": []
+  }
+}

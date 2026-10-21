@@ -1,0 +1,867 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "init",
+        "--question",
+        "How is schedule predictability associated with job retention intentions among hourly retail workers?",
+        "--output",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"created\", \"project\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "phase-context",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science",
+        "--phase",
+        "0"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_registry_version\": \"1.0.0\",\n  \"project\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science\",\n  \"phase\": {\n    \"phase_id\": 0,\n    \"phase_name\": \"Review protocol\",\n    \"purpose\": \"Turn the research question into a case-neutral, reviewable and explicitly approved research protocol.\",\n    \"prerequisites\": [],\n    \"required_inputs\": [\n      \"user research question\"\n    ],\n    \"allowed_inputs\": [\n      \"domain context\",\n      \"method preferences\",\n      \"date or language constraints\",\n      \"stakeholder decisions\"\n    ],\n    \"expected_outputs\": [\n      \"00_protocol/PROTOCOL.json\",\n      \"00_protocol/REVIEW_PROTOCOL.md\",\n      \"00_protocol/RESEARCH_QUESTIONS.md\",\n      \"00_protocol/INCLUSION_EXCLUSION.md\",\n      \"00_protocol/DOMAIN_EXTENSION_SCHEMA.json\"\n    ],\n    \"research_procedure\": \"procedures/phase_00_protocol.md\",\n    \"validation_rules\": [\n      \"protocol_schema_valid\",\n      \"protocol_substantively_populated\",\n      \"protocol_not_auto_approved\",\n      \"research_type_extensions_declared\"\n    ],\n    \"completion_conditions\": [\n      \"protocol passes schema and substantive validation\",\n      \"human uncertainties are resolved or explicitly recorded\",\n      \"human approval is recorded\"\n    ],\n    \"applicable_quality_gates\": [],\n    \"human_review_requirements\": [\n      \"A human must approve the protocol; the agent must not approve it.\"\n    ],\n    \"next_phase\": 1\n  },\n  \"phase_status\": \"in_progress\",\n  \"gate_results\": {\n    \"phase-prerequisites\": {\n      \"status\": \"pass\",\n      \"message\": \"Registry prerequisites are complete.\"\n    },\n    \"protocol-structure\": {\n      \"status\": \"pass\",\n      \"message\": \"Phase 0 protocol scaffold is available; approval is not evaluated.\"\n    }\n  },\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure\": \"# Phase 0 — Review Protocol\\n\\n## Objective and rationale\\n\\nConvert the user's research question into a case-neutral protocol that makes scope, review questions, concepts, search plans, eligibility rules, evidence fields and unresolved decisions explicit before discovery begins. A protocol constrains later choices; it does not predict findings.\\n\\n## Required inputs\\n\\n- The user's exact research question and any stated domain, population, place, period or source constraints.\\n- Any explicit methodological preferences or intended review product.\\n- The current schema catalog and universal evidence model.\\n\\n## Research operations\\n\\n1. Identify the question's epistemic form: quantitative, qualitative, historical/documentary, theoretical/conceptual, archaeological/material, or a justified combination.\\n2. Draft scope boundaries and answerable subquestions without forcing PICO, exposure–outcome or another single framework.\\n3. Define ambiguous concepts operationally and list meanings deliberately excluded.\\n4. Derive search concept blocks and proposed query approaches from those concepts.\\n5. Draft inclusion and exclusion criteria that can be applied consistently.\\n6. Select composable research-type extensions and propose additional domain fields only when necessary.\\n7. Record uncertainties that require a human decision. Save a draft with `approval.status` still unapproved.\\n\\n## Expected artifacts\\n\\n- `00_protocol/PROTOCOL.json`\\n- `00_protocol/REVIEW_PROTOCOL.md`\\n- `00_protocol/RESEARCH_QUESTIONS.md`\\n- `00_protocol/INCLUSION_EXCLUSION.md`\\n- `00_protocol/DOMAIN_EXTENSION_SCHEMA.json`\\n\\n## Evidence and provenance requirements\\n\\nRetain the original question verbatim, distinguish user constraints from agent proposals, and record the basis for every added scope boundary. No literature-search result is implied at this phase.\\n\\n## Academic judgment points\\n\\nChoose a question decomposition suited to the research type; decide whether extensions should be combined; surface contested terminology and feasibility trade-offs for review.\\n\\n## Uncertainty and failure handling\\n\\nLeave consequential choices in the human-decision list. If the question is too ambiguous for a defensible protocol, keep Phase 0 in progress and request the smallest necessary clarification.\\n\\n## Prohibited actions\\n\\nDo not invent sources or findings, reuse example concepts, claim a search was performed, impose a fixed query-family template, or approve the protocol on the user's behalf.\\n\\n## Completion requirements\\n\\nAll required artifacts must pass schema and substantive checks, human-decision items must be resolved or explicitly accepted as limitations, and a named human must run the approval action.\\n\\n\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "init",
+        "--question",
+        "How do adult literacy tutors describe adapting feedback for multilingual learners?",
+        "--output",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"created\", \"project\": \"examples/round2b-no-skills-behavior/projects/qualitative-education\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "phase-context",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education",
+        "--phase",
+        "0"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_registry_version\": \"1.0.0\",\n  \"project\": \"examples/round2b-no-skills-behavior/projects/qualitative-education\",\n  \"phase\": {\n    \"phase_id\": 0,\n    \"phase_name\": \"Review protocol\",\n    \"purpose\": \"Turn the research question into a case-neutral, reviewable and explicitly approved research protocol.\",\n    \"prerequisites\": [],\n    \"required_inputs\": [\n      \"user research question\"\n    ],\n    \"allowed_inputs\": [\n      \"domain context\",\n      \"method preferences\",\n      \"date or language constraints\",\n      \"stakeholder decisions\"\n    ],\n    \"expected_outputs\": [\n      \"00_protocol/PROTOCOL.json\",\n      \"00_protocol/REVIEW_PROTOCOL.md\",\n      \"00_protocol/RESEARCH_QUESTIONS.md\",\n      \"00_protocol/INCLUSION_EXCLUSION.md\",\n      \"00_protocol/DOMAIN_EXTENSION_SCHEMA.json\"\n    ],\n    \"research_procedure\": \"procedures/phase_00_protocol.md\",\n    \"validation_rules\": [\n      \"protocol_schema_valid\",\n      \"protocol_substantively_populated\",\n      \"protocol_not_auto_approved\",\n      \"research_type_extensions_declared\"\n    ],\n    \"completion_conditions\": [\n      \"protocol passes schema and substantive validation\",\n      \"human uncertainties are resolved or explicitly recorded\",\n      \"human approval is recorded\"\n    ],\n    \"applicable_quality_gates\": [],\n    \"human_review_requirements\": [\n      \"A human must approve the protocol; the agent must not approve it.\"\n    ],\n    \"next_phase\": 1\n  },\n  \"phase_status\": \"in_progress\",\n  \"gate_results\": {\n    \"phase-prerequisites\": {\n      \"status\": \"pass\",\n      \"message\": \"Registry prerequisites are complete.\"\n    },\n    \"protocol-structure\": {\n      \"status\": \"pass\",\n      \"message\": \"Phase 0 protocol scaffold is available; approval is not evaluated.\"\n    }\n  },\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure\": \"# Phase 0 — Review Protocol\\n\\n## Objective and rationale\\n\\nConvert the user's research question into a case-neutral protocol that makes scope, review questions, concepts, search plans, eligibility rules, evidence fields and unresolved decisions explicit before discovery begins. A protocol constrains later choices; it does not predict findings.\\n\\n## Required inputs\\n\\n- The user's exact research question and any stated domain, population, place, period or source constraints.\\n- Any explicit methodological preferences or intended review product.\\n- The current schema catalog and universal evidence model.\\n\\n## Research operations\\n\\n1. Identify the question's epistemic form: quantitative, qualitative, historical/documentary, theoretical/conceptual, archaeological/material, or a justified combination.\\n2. Draft scope boundaries and answerable subquestions without forcing PICO, exposure–outcome or another single framework.\\n3. Define ambiguous concepts operationally and list meanings deliberately excluded.\\n4. Derive search concept blocks and proposed query approaches from those concepts.\\n5. Draft inclusion and exclusion criteria that can be applied consistently.\\n6. Select composable research-type extensions and propose additional domain fields only when necessary.\\n7. Record uncertainties that require a human decision. Save a draft with `approval.status` still unapproved.\\n\\n## Expected artifacts\\n\\n- `00_protocol/PROTOCOL.json`\\n- `00_protocol/REVIEW_PROTOCOL.md`\\n- `00_protocol/RESEARCH_QUESTIONS.md`\\n- `00_protocol/INCLUSION_EXCLUSION.md`\\n- `00_protocol/DOMAIN_EXTENSION_SCHEMA.json`\\n\\n## Evidence and provenance requirements\\n\\nRetain the original question verbatim, distinguish user constraints from agent proposals, and record the basis for every added scope boundary. No literature-search result is implied at this phase.\\n\\n## Academic judgment points\\n\\nChoose a question decomposition suited to the research type; decide whether extensions should be combined; surface contested terminology and feasibility trade-offs for review.\\n\\n## Uncertainty and failure handling\\n\\nLeave consequential choices in the human-decision list. If the question is too ambiguous for a defensible protocol, keep Phase 0 in progress and request the smallest necessary clarification.\\n\\n## Prohibited actions\\n\\nDo not invent sources or findings, reuse example concepts, claim a search was performed, impose a fixed query-family template, or approve the protocol on the user's behalf.\\n\\n## Completion requirements\\n\\nAll required artifacts must pass schema and substantive checks, human-decision items must be resolved or explicitly accepted as limitations, and a named human must run the approval action.\\n\\n\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "init",
+        "--question",
+        "How did municipal rationing records frame household fuel scarcity in British cities between 1939 and 1950?",
+        "--output",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"created\", \"project\": \"examples/round2b-no-skills-behavior/projects/historical-documentary\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "phase-context",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary",
+        "--phase",
+        "0"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_registry_version\": \"1.0.0\",\n  \"project\": \"examples/round2b-no-skills-behavior/projects/historical-documentary\",\n  \"phase\": {\n    \"phase_id\": 0,\n    \"phase_name\": \"Review protocol\",\n    \"purpose\": \"Turn the research question into a case-neutral, reviewable and explicitly approved research protocol.\",\n    \"prerequisites\": [],\n    \"required_inputs\": [\n      \"user research question\"\n    ],\n    \"allowed_inputs\": [\n      \"domain context\",\n      \"method preferences\",\n      \"date or language constraints\",\n      \"stakeholder decisions\"\n    ],\n    \"expected_outputs\": [\n      \"00_protocol/PROTOCOL.json\",\n      \"00_protocol/REVIEW_PROTOCOL.md\",\n      \"00_protocol/RESEARCH_QUESTIONS.md\",\n      \"00_protocol/INCLUSION_EXCLUSION.md\",\n      \"00_protocol/DOMAIN_EXTENSION_SCHEMA.json\"\n    ],\n    \"research_procedure\": \"procedures/phase_00_protocol.md\",\n    \"validation_rules\": [\n      \"protocol_schema_valid\",\n      \"protocol_substantively_populated\",\n      \"protocol_not_auto_approved\",\n      \"research_type_extensions_declared\"\n    ],\n    \"completion_conditions\": [\n      \"protocol passes schema and substantive validation\",\n      \"human uncertainties are resolved or explicitly recorded\",\n      \"human approval is recorded\"\n    ],\n    \"applicable_quality_gates\": [],\n    \"human_review_requirements\": [\n      \"A human must approve the protocol; the agent must not approve it.\"\n    ],\n    \"next_phase\": 1\n  },\n  \"phase_status\": \"in_progress\",\n  \"gate_results\": {\n    \"phase-prerequisites\": {\n      \"status\": \"pass\",\n      \"message\": \"Registry prerequisites are complete.\"\n    },\n    \"protocol-structure\": {\n      \"status\": \"pass\",\n      \"message\": \"Phase 0 protocol scaffold is available; approval is not evaluated.\"\n    }\n  },\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure\": \"# Phase 0 — Review Protocol\\n\\n## Objective and rationale\\n\\nConvert the user's research question into a case-neutral protocol that makes scope, review questions, concepts, search plans, eligibility rules, evidence fields and unresolved decisions explicit before discovery begins. A protocol constrains later choices; it does not predict findings.\\n\\n## Required inputs\\n\\n- The user's exact research question and any stated domain, population, place, period or source constraints.\\n- Any explicit methodological preferences or intended review product.\\n- The current schema catalog and universal evidence model.\\n\\n## Research operations\\n\\n1. Identify the question's epistemic form: quantitative, qualitative, historical/documentary, theoretical/conceptual, archaeological/material, or a justified combination.\\n2. Draft scope boundaries and answerable subquestions without forcing PICO, exposure–outcome or another single framework.\\n3. Define ambiguous concepts operationally and list meanings deliberately excluded.\\n4. Derive search concept blocks and proposed query approaches from those concepts.\\n5. Draft inclusion and exclusion criteria that can be applied consistently.\\n6. Select composable research-type extensions and propose additional domain fields only when necessary.\\n7. Record uncertainties that require a human decision. Save a draft with `approval.status` still unapproved.\\n\\n## Expected artifacts\\n\\n- `00_protocol/PROTOCOL.json`\\n- `00_protocol/REVIEW_PROTOCOL.md`\\n- `00_protocol/RESEARCH_QUESTIONS.md`\\n- `00_protocol/INCLUSION_EXCLUSION.md`\\n- `00_protocol/DOMAIN_EXTENSION_SCHEMA.json`\\n\\n## Evidence and provenance requirements\\n\\nRetain the original question verbatim, distinguish user constraints from agent proposals, and record the basis for every added scope boundary. No literature-search result is implied at this phase.\\n\\n## Academic judgment points\\n\\nChoose a question decomposition suited to the research type; decide whether extensions should be combined; surface contested terminology and feasibility trade-offs for review.\\n\\n## Uncertainty and failure handling\\n\\nLeave consequential choices in the human-decision list. If the question is too ambiguous for a defensible protocol, keep Phase 0 in progress and request the smallest necessary clarification.\\n\\n## Prohibited actions\\n\\nDo not invent sources or findings, reuse example concepts, claim a search was performed, impose a fixed query-family template, or approve the protocol on the user's behalf.\\n\\n## Completion requirements\\n\\nAll required artifacts must pass schema and substantive checks, human-decision items must be resolved or explicitly accepted as limitations, and a named human must run the approval action.\\n\\n\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "init",
+        "--question",
+        "What can microwear analysis of ground-stone tools contribute to interpretations of plant-processing practices in early farming settlements?",
+        "--output",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"created\", \"project\": \"examples/round2b-no-skills-behavior/projects/archaeological-material\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "phase-context",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material",
+        "--phase",
+        "0"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_registry_version\": \"1.0.0\",\n  \"project\": \"examples/round2b-no-skills-behavior/projects/archaeological-material\",\n  \"phase\": {\n    \"phase_id\": 0,\n    \"phase_name\": \"Review protocol\",\n    \"purpose\": \"Turn the research question into a case-neutral, reviewable and explicitly approved research protocol.\",\n    \"prerequisites\": [],\n    \"required_inputs\": [\n      \"user research question\"\n    ],\n    \"allowed_inputs\": [\n      \"domain context\",\n      \"method preferences\",\n      \"date or language constraints\",\n      \"stakeholder decisions\"\n    ],\n    \"expected_outputs\": [\n      \"00_protocol/PROTOCOL.json\",\n      \"00_protocol/REVIEW_PROTOCOL.md\",\n      \"00_protocol/RESEARCH_QUESTIONS.md\",\n      \"00_protocol/INCLUSION_EXCLUSION.md\",\n      \"00_protocol/DOMAIN_EXTENSION_SCHEMA.json\"\n    ],\n    \"research_procedure\": \"procedures/phase_00_protocol.md\",\n    \"validation_rules\": [\n      \"protocol_schema_valid\",\n      \"protocol_substantively_populated\",\n      \"protocol_not_auto_approved\",\n      \"research_type_extensions_declared\"\n    ],\n    \"completion_conditions\": [\n      \"protocol passes schema and substantive validation\",\n      \"human uncertainties are resolved or explicitly recorded\",\n      \"human approval is recorded\"\n    ],\n    \"applicable_quality_gates\": [],\n    \"human_review_requirements\": [\n      \"A human must approve the protocol; the agent must not approve it.\"\n    ],\n    \"next_phase\": 1\n  },\n  \"phase_status\": \"in_progress\",\n  \"gate_results\": {\n    \"phase-prerequisites\": {\n      \"status\": \"pass\",\n      \"message\": \"Registry prerequisites are complete.\"\n    },\n    \"protocol-structure\": {\n      \"status\": \"pass\",\n      \"message\": \"Phase 0 protocol scaffold is available; approval is not evaluated.\"\n    }\n  },\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: scope\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: subquestions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_blocks\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.include\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: screening.exclude\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: research_types\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: concept_definitions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: search.strategy_groups\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: evidence_extensions\"\n    },\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_substantive\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Protocol section is not substantively populated: human_decisions\"\n    }\n  ],\n  \"procedure\": \"# Phase 0 — Review Protocol\\n\\n## Objective and rationale\\n\\nConvert the user's research question into a case-neutral protocol that makes scope, review questions, concepts, search plans, eligibility rules, evidence fields and unresolved decisions explicit before discovery begins. A protocol constrains later choices; it does not predict findings.\\n\\n## Required inputs\\n\\n- The user's exact research question and any stated domain, population, place, period or source constraints.\\n- Any explicit methodological preferences or intended review product.\\n- The current schema catalog and universal evidence model.\\n\\n## Research operations\\n\\n1. Identify the question's epistemic form: quantitative, qualitative, historical/documentary, theoretical/conceptual, archaeological/material, or a justified combination.\\n2. Draft scope boundaries and answerable subquestions without forcing PICO, exposure–outcome or another single framework.\\n3. Define ambiguous concepts operationally and list meanings deliberately excluded.\\n4. Derive search concept blocks and proposed query approaches from those concepts.\\n5. Draft inclusion and exclusion criteria that can be applied consistently.\\n6. Select composable research-type extensions and propose additional domain fields only when necessary.\\n7. Record uncertainties that require a human decision. Save a draft with `approval.status` still unapproved.\\n\\n## Expected artifacts\\n\\n- `00_protocol/PROTOCOL.json`\\n- `00_protocol/REVIEW_PROTOCOL.md`\\n- `00_protocol/RESEARCH_QUESTIONS.md`\\n- `00_protocol/INCLUSION_EXCLUSION.md`\\n- `00_protocol/DOMAIN_EXTENSION_SCHEMA.json`\\n\\n## Evidence and provenance requirements\\n\\nRetain the original question verbatim, distinguish user constraints from agent proposals, and record the basis for every added scope boundary. No literature-search result is implied at this phase.\\n\\n## Academic judgment points\\n\\nChoose a question decomposition suited to the research type; decide whether extensions should be combined; surface contested terminology and feasibility trade-offs for review.\\n\\n## Uncertainty and failure handling\\n\\nLeave consequential choices in the human-decision list. If the question is too ambiguous for a defensible protocol, keep Phase 0 in progress and request the smallest necessary clarification.\\n\\n## Prohibited actions\\n\\nDo not invent sources or findings, reuse example concepts, claim a search was performed, impose a fixed query-family template, or approve the protocol on the user's behalf.\\n\\n## Completion requirements\\n\\nAll required artifacts must pass schema and substantive checks, human-decision items must be resolved or explicitly accepted as limitations, and a named human must run the approval action.\\n\\n\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/quantitative-social-science"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/qualitative-education"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/historical-documentary"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "update-protocol",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material",
+        "--config",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL_DRAFT_INPUT.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"status\": \"draft_updated\", \"protocol_version\": \"0.1-draft\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "protocol-status",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"schema_valid\": true,\n  \"substantively_populated\": true,\n  \"pending_human_review\": true,\n  \"approved\": false,\n  \"protocol_status\": \"draft\",\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "validate",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material",
+        "--require-substantive-protocol"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"valid\": true,\n  \"issues\": []\n}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "research_review_agent",
+        "next",
+        "--project",
+        "examples/round2b-no-skills-behavior/projects/archaeological-material"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"workflow_complete\": false,\n  \"next_phase\": 0,\n  \"phase_name\": \"Review protocol\",\n  \"phase_status\": \"in_progress\",\n  \"allowed_to_start\": true,\n  \"blocked_by\": [],\n  \"completion_ready\": false,\n  \"completion_issues\": [\n    {\n      \"severity\": \"error\",\n      \"code\": \"protocol_not_approved\",\n      \"path\": \"examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json\",\n      \"message\": \"Approve the protocol before continuing.\"\n    }\n  ],\n  \"procedure_path\": \"procedures/phase_00_protocol.md\",\n  \"recommended_action\": \"Follow the registered Phase 0 procedure and resolve its completion issues.\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "failures": [],
+  "test_name": "round2b-no-skills-behavior",
+  "example_data": true,
+  "no_skills": {
+    "confirmed": true,
+    "skills_inspected": [],
+    "skills_invoked": [],
+    "project_or_global_skills_used": false
+  },
+  "external_operations": [],
+  "research_results_generated": false,
+  "approval_or_advance_commands_run": false,
+  "control_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "8164567828d71cc96f4d0c718d22644888958fb84c7a107549a5a0225af91cee",
+      "access": "read directly"
+    },
+    {
+      "path": "workflow/phases.json",
+      "sha256": "4b37f6dd81962e1f6d6bc07b8bc3484db849a8f4ee4bb9d34bbade51b05bdb72",
+      "access": "read directly"
+    },
+    {
+      "path": "workflow/procedures/phase_00_protocol.md",
+      "sha256": "e1b565a4c3f64634e187f2a0213d72f9dec4a2f27f4430e16bcc299949c93e4d",
+      "access": "procedure text returned by phase-context"
+    }
+  ],
+  "project_inputs_read": [
+    "examples/round2b-no-skills-behavior/projects/quantitative-social-science/00_protocol/PROTOCOL.json",
+    "examples/round2b-no-skills-behavior/projects/quantitative-social-science/TASK_STATE.md",
+    "examples/round2b-no-skills-behavior/projects/quantitative-social-science/DECISIONS.md",
+    "examples/round2b-no-skills-behavior/projects/qualitative-education/00_protocol/PROTOCOL.json",
+    "examples/round2b-no-skills-behavior/projects/qualitative-education/TASK_STATE.md",
+    "examples/round2b-no-skills-behavior/projects/qualitative-education/DECISIONS.md",
+    "examples/round2b-no-skills-behavior/projects/historical-documentary/00_protocol/PROTOCOL.json",
+    "examples/round2b-no-skills-behavior/projects/historical-documentary/TASK_STATE.md",
+    "examples/round2b-no-skills-behavior/projects/historical-documentary/DECISIONS.md",
+    "examples/round2b-no-skills-behavior/projects/archaeological-material/00_protocol/PROTOCOL.json",
+    "examples/round2b-no-skills-behavior/projects/archaeological-material/TASK_STATE.md",
+    "examples/round2b-no-skills-behavior/projects/archaeological-material/DECISIONS.md"
+  ],
+  "additional_cli_commands_used": [
+    [
+      "python3",
+      "-m",
+      "research_review_agent",
+      "--help"
+    ],
+    [
+      "python3",
+      "-m",
+      "research_review_agent",
+      "init",
+      "--help"
+    ],
+    [
+      "python3",
+      "-m",
+      "research_review_agent",
+      "update-protocol",
+      "--help"
+    ],
+    [
+      "python3",
+      "-m",
+      "research_review_agent",
+      "phase-context",
+      "--help"
+    ],
+    [
+      "python3",
+      "-m",
+      "research_review_agent",
+      "validate",
+      "--help"
+    ],
+    [
+      "python3",
+      "-m",
+      "research_review_agent",
+      "schema"
+    ]
+  ],
+  "execution_notes": [
+    "Initial next and phase-context correctly reported empty scaffold sections and missing approval; these were readiness diagnostics, not CLI command failures.",
+    "Concept labels were supplemented in draft inputs and saved again via update-protocol after reviewing generated narrative.",
+    "No package modules or tests were modified. No other example protocols were read.",
+    "Protocol schema has no example_data field; demonstration labeling is in titles, narratives and this manifest. No evidence or publication rows were populated.",
+    "All extension fields are optional and type-specific; absent details must use explicit missing-value handling, not invented values."
+  ],
+  "projects": [
+    {
+      "path": "examples/round2b-no-skills-behavior/projects/quantitative-social-science",
+      "research_question": "How is schedule predictability associated with job retention intentions among hourly retail workers?",
+      "research_types": [
+        "quantitative_empirical"
+      ],
+      "protocol_status": {
+        "schema_valid": true,
+        "substantively_populated": true,
+        "pending_human_review": true,
+        "approved": false,
+        "protocol_status": "draft",
+        "issues": []
+      },
+      "substantive_validation": {
+        "valid": true,
+        "issues": []
+      },
+      "phase_0": "in_progress",
+      "later_phases": "pending",
+      "pending_decisions": [
+        "Human review: approve global coverage and English-language initial screening with other languages flagged for translation rather than silently excluded",
+        "Human review: decide whether store-manager hourly roles and gig retail work fall within scope",
+        "Human review: confirm that intentions, rather than actual retention, remain the focal endpoint"
+      ]
+    },
+    {
+      "path": "examples/round2b-no-skills-behavior/projects/qualitative-education",
+      "research_question": "How do adult literacy tutors describe adapting feedback for multilingual learners?",
+      "research_types": [
+        "qualitative_empirical"
+      ],
+      "protocol_status": {
+        "schema_valid": true,
+        "substantively_populated": true,
+        "pending_human_review": true,
+        "approved": false,
+        "protocol_status": "draft",
+        "issues": []
+      },
+      "substantive_validation": {
+        "valid": true,
+        "issues": []
+      },
+      "phase_0": "in_progress",
+      "later_phases": "pending",
+      "pending_decisions": [
+        "Human review: decide whether adult language courses without an explicit literacy remit are eligible",
+        "Human review: confirm inclusion of volunteer tutors and unpublished practitioner research",
+        "Human review: approve initial English screening and arrangements for other-language accounts"
+      ]
+    },
+    {
+      "path": "examples/round2b-no-skills-behavior/projects/historical-documentary",
+      "research_question": "How did municipal rationing records frame household fuel scarcity in British cities between 1939 and 1950?",
+      "research_types": [
+        "historical_documentary"
+      ],
+      "protocol_status": {
+        "schema_valid": true,
+        "substantively_populated": true,
+        "pending_human_review": true,
+        "approved": false,
+        "protocol_status": "draft",
+        "issues": []
+      },
+      "substantive_validation": {
+        "valid": true,
+        "issues": []
+      },
+      "phase_0": "in_progress",
+      "later_phases": "pending",
+      "pending_decisions": [
+        "Human review: confirm Great Britain boundary or explicitly include Northern Ireland",
+        "Human review: select cities after an authorized catalogue feasibility assessment and document survival audit",
+        "Human review: decide treatment of restricted personal household records and translation of Welsh-language records"
+      ]
+    },
+    {
+      "path": "examples/round2b-no-skills-behavior/projects/archaeological-material",
+      "research_question": "What can microwear analysis of ground-stone tools contribute to interpretations of plant-processing practices in early farming settlements?",
+      "research_types": [
+        "archaeological_material"
+      ],
+      "protocol_status": {
+        "schema_valid": true,
+        "substantively_populated": true,
+        "pending_human_review": true,
+        "approved": false,
+        "protocol_status": "draft",
+        "issues": []
+      },
+      "substantive_validation": {
+        "valid": true,
+        "issues": []
+      },
+      "phase_0": "in_progress",
+      "later_phases": "pending",
+      "pending_decisions": [
+        "Human review: decide regional coverage and operational early-farming boundaries before discovery",
+        "Human review: decide minimum reporting needed for surface preservation and analytical reproducibility",
+        "Human review: confirm inclusion of grey-literature excavation reports and translation arrangements"
+      ]
+    }
+  ],
+  "publication_note": "Privacy-filtered presentation copy of historical draft-example execution results. Host paths replaced with repository-relative paths. Original private transcripts and checksummed journals are excluded, not rewritten. Not an approval or recoverable research archive; not a new test run."
+}

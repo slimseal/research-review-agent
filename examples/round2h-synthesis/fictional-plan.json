@@ -1,0 +1,647 @@
+{
+  "coverage_limitations": "Entirely fictional four-source software-validation corpus. No real literature findings, scientific benchmark, human approval or field-wide gap assessment.",
+  "search_coverage": "No database search. Sources were deliberately constructed to exercise disagreement and uncertainty.",
+  "selection_rationale": "Coherent fictional retrieval-task topic; retain positive, negative, null, interpretive, secondary and uncertain material.",
+  "irrelevance_rationale": "The item's distinct proposition does not directly address this claim; it remains included elsewhere in the corpus and coverage assessments.",
+  "semantic_checks": {
+    "causality": "Associations and source-described patterns are not treated as identified causal effects.",
+    "prediction": "No predictive performance is converted into intervention evidence.",
+    "mechanism": "D proposes feedback timing; E8 explicitly leaves explanatory mediation unresolved.",
+    "generalization": "All retained interpretations are bounded to the fictional source contexts.",
+    "historical_inference": "No historical observation or archaeological fact is inferred from these teaching fixtures.",
+    "secondary_source": "E7 remains an uninspected secondary report, never an independently verified original result.",
+    "null_results": "E2 is retained as null, not equivalence or proof of no effect.",
+    "contradictions": "E3 challenges an unconditional benefit proposition; design/measurement differences prevent simple pooling.",
+    "uncertainty": "E8 remains unresolved; the fixture is not verified real-world evidence.",
+    "independence": "E1 and E2 are one paper, not two independent studies; evidence and paper counts are distinct.",
+    "consensus": "Positive, negative and null patterns coexist; no vote count or consensus is asserted.",
+    "novelty": "The gap candidate concerns a documented comparison problem inside the fixture, not field-wide absence or originality."
+  },
+  "evidence_assessments": {
+    "E1": "FICTIONAL A: Voluntary retrieval frequency was positively associated with immediate factual-test scores. Selection and prior knowledge were uncontrolled. Limits: Selection and prior knowledge uncontrolled; no causal identification; immediate and delayed measures differ",
+    "E2": "FICTIONAL A: The association with delayed conceptual-transfer scores was null in the measured class; this was not an equivalence test. Limits: Selection and prior knowledge uncontrolled; no causal identification; immediate and delayed measures differ",
+    "E3": "FICTIONAL B: Classes assigned timed retrieval had lower immediate free-recall scores than classes assigned restudy. This pattern conflicts with an unconditional benefit proposition, not with A's local observation. Limits: Single synthetic classroom allocation; no inference beyond context; different outcome and delivery from A",
+    "E4": "FICTIONAL C: Interpretive analysis associated voluntary practice with perceived autonomy, while timed tasks were described as pressure. These are analytic interpretations, not measured retention effects. Limits: Analyst-created fictional themes; no participant quotations; experiences do not estimate effects",
+    "E5": "FICTIONAL C: Accounts of participation were mixed, including engagement and withdrawal; neither theme was universal. Limits: Analyst-created fictional themes; no participant quotations; experiences do not estimate effects",
+    "E6": "FICTIONAL D: Feedback timing is proposed as a mechanism that could alter retrieval-task usefulness. The proposition has not been empirically tested in this source. Limits: No original empirical mechanism test; original secondary source not inspected",
+    "E7": "FICTIONAL D: An uninspected prior report is cited as suggesting a feedback advantage. This secondary statement does not independently verify that prior result. Limits: No original empirical mechanism test; original secondary source not inspected",
+    "E8": "FICTIONAL D: Whether feedback explains the differing patterns in A and B is unresolved; no mediation estimate or comparative test is available. Limits: No original empirical mechanism test; original secondary source not inspected"
+  },
+  "records": [
+    {
+      "alias": "T1",
+      "kind": "theme",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "label": "Retention depends on how performance is operationalized",
+        "definition": "Compare immediate factual scores, free recall and delayed conceptual transfer without pooling.",
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "supporting_evidence_ids": [
+          "E1"
+        ],
+        "qualifying_evidence_ids": [
+          "E2"
+        ],
+        "contradictory_evidence_ids": [
+          "E3"
+        ],
+        "coverage": "Two distinct papers, three items; one delayed measure.",
+        "interpretation": "A positive association does not establish a cross-design benefit; B challenges the unconditional extension.",
+        "comparability": "A and B differ in assignment, delivery, learner setting and test; E2 is delayed transfer, not immediate recall.",
+        "comparisons": [
+          {
+            "dimension": "question and concepts",
+            "evidence_ids": [
+              "E1",
+              "E2",
+              "E3"
+            ],
+            "comparability": "noncomparable",
+            "assessment": "Retention labels conceal factual, free-recall and conceptual-transfer operationalizations."
+          },
+          {
+            "dimension": "design and context",
+            "evidence_ids": [
+              "E1",
+              "E3"
+            ],
+            "comparability": "noncomparable",
+            "assessment": "Voluntary urban observational exposure differs from imposed timed classroom allocation; context and design are confounded."
+          },
+          {
+            "dimension": "finding and limits",
+            "evidence_ids": [
+              "E1",
+              "E2",
+              "E3"
+            ],
+            "comparability": "uncertain",
+            "assessment": "Positive, null and negative patterns coexist but do not estimate a common effect."
+          }
+        ]
+      },
+      "semantic_rationale": "Compared propositions and operationalizations rather than counting papers as votes.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "TH1",
+      "kind": "theory",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "name": "Proposed feedback-timing explanation",
+        "evidence_ids": [
+          "E6",
+          "E7",
+          "E8"
+        ],
+        "supporting_evidence_ids": [
+          "E6"
+        ],
+        "qualifying_evidence_ids": [
+          "E7",
+          "E8"
+        ],
+        "contradictory_evidence_ids": [],
+        "propositions": "Feedback timing could modify task usefulness.",
+        "mechanisms": "Proposed feedback pathway, not a tested mediator.",
+        "mechanism_status": "proposed",
+        "competing_explanations": "Selection, timing pressure, task difficulty and outcome differences.",
+        "conceptual_limits": "D has no original test; E7 is indirect and E8 unresolved.",
+        "context": "Conceptual account only."
+      },
+      "semantic_rationale": "E6 directly describes a proposal; E7 and E8 cannot strengthen it into empirical mediation.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "M1",
+      "kind": "method",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E7",
+          "E8"
+        ],
+        "design": "Observational association A; assigned classroom comparison B; qualitative interpretation C; conceptual reasoning D.",
+        "data_source_type": "Synthetic scores, synthetic accounts and synthetic propositions.",
+        "case_selection": "Voluntary urban vs assigned rural classes; purposive conceptual examples.",
+        "analytic_method": "Association, between-class contrast, interpretive thematic analysis and conceptual argument.",
+        "measurement_interpretation": "Immediate factual tests, free recall, delayed transfer and perceived autonomy are distinct.",
+        "identification_applicability": "A cannot identify causation; B's fixture lacks a complete identification analysis; C/D do not estimate effects.",
+        "limitations": "No pooling, synthetic single-context sources, no independent annotations.",
+        "relevance_to_disagreement": "Outcome/assignment/task/context differences are competing explanations, not isolated moderator tests."
+      },
+      "semantic_rationale": "Different research types are compared on their own inferential terms; no forced effect-size hierarchy.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "X1",
+      "kind": "controversy",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "evidence_ids": [
+          "E1",
+          "E3"
+        ],
+        "supporting_evidence_ids": [
+          "E1"
+        ],
+        "qualifying_evidence_ids": [],
+        "contradictory_evidence_ids": [
+          "E3"
+        ],
+        "positions": [
+          {
+            "proposition": "Positive immediate-score association under voluntary practice",
+            "evidence_ids": [
+              "E1"
+            ]
+          },
+          {
+            "proposition": "Lower immediate free recall under imposed timed retrieval",
+            "evidence_ids": [
+              "E3"
+            ]
+          }
+        ],
+        "context_differences": "Voluntary urban vs imposed rural settings.",
+        "method_differences": "Observational factual test vs assigned free-recall comparison.",
+        "unresolved_questions": "Would patterns persist under matched tasks, outcomes and allocation?",
+        "possible_explanations": "Selection, pressure or measurement; cannot isolate a causal moderator."
+      },
+      "semantic_rationale": "Apparent cross-study tension, not proof the two local observations logically contradict.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "B1",
+      "kind": "boundary",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E4",
+          "E5"
+        ],
+        "record_refs": [
+          "T1"
+        ],
+        "dimension": "Delivery constraint and outcome timing",
+        "context": "Voluntary/timed practice; immediate recall/delayed transfer.",
+        "nature_direction": "Uniform usefulness is not supported across these different measurements and accounts.",
+        "strength": "Cross-study suggested only.",
+        "alternative_explanations": "Selection, task difficulty and outcome changes confounded with context.",
+        "basis_level": "cross_study_suggested"
+      },
+      "semantic_rationale": "No isolated within-study moderation test exists.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "C1",
+      "kind": "claim",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "proposition": "In fictional A, retrieval frequency is positively associated with immediate factual-test scores.",
+        "claim_type": "empirical_association",
+        "scope": "A's measured voluntary class; no population causal generalization.",
+        "strength": "Source-bounded association; not identified causal effect.",
+        "methodological_limits": "Prior knowledge and self-selection uncontrolled; E2/E3 limit extension.",
+        "allowed_wording": "A reports a positive immediate-score association; delayed transfer and other task contexts do not support a uniform benefit.",
+        "prohibited_overclaim": "Retrieval practice causes better learning for all learners.",
+        "generalization": "source_bounded",
+        "record_refs": [
+          "T1",
+          "M1",
+          "X1",
+          "B1"
+        ],
+        "evidence_decisions": {
+          "E1": {
+            "relation": "supports",
+            "rationale": "Directly reports A's local association."
+          },
+          "E2": {
+            "relation": "qualifies",
+            "rationale": "Null delayed transfer limits outcome generalization."
+          },
+          "E3": {
+            "relation": "qualifies",
+            "rationale": "Different design/context has negative pattern; does not refute A's own local observation."
+          }
+        }
+      },
+      "semantic_rationale": "Wording is restricted to the source observation; counterpatterns remain visible.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "C2",
+      "kind": "claim",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "proposition": "Feedback timing is an untested proposed explanation in fictional D.",
+        "claim_type": "theoretical",
+        "scope": "D's conceptual proposition only.",
+        "strength": "Direct conceptual description, no empirical validation.",
+        "methodological_limits": "No tested mediation; secondary report is unverified.",
+        "allowed_wording": "D proposes feedback timing; explanatory adequacy remains unresolved.",
+        "prohibited_overclaim": "Feedback is the verified mediator explaining A/B differences.",
+        "generalization": "source_bounded",
+        "record_refs": [
+          "TH1"
+        ],
+        "evidence_decisions": {
+          "E6": {
+            "relation": "supports",
+            "rationale": "Source explicitly proposes mechanism."
+          },
+          "E7": {
+            "relation": "context",
+            "rationale": "Indirect prior-report citation, not original verification."
+          },
+          "E8": {
+            "relation": "uncertain",
+            "rationale": "Source explicitly leaves explanation unresolved."
+          }
+        }
+      },
+      "semantic_rationale": "Theoretical support is for the existence of the proposal, not its truth as a mechanism.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "C3",
+      "kind": "claim",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "proposition": "Retrieval practice improves immediate retention across all fictional instructional contexts.",
+        "claim_type": "conditional",
+        "scope": "Candidate generalization under examination, NOT an accepted conclusion.",
+        "strength": "Contested and unsupported as worded.",
+        "methodological_limits": "A is selected observational evidence; B counters unconditional extension; outcomes differ.",
+        "allowed_wording": "This candidate must be rejected or narrowed to A's local association.",
+        "prohibited_overclaim": "All contexts benefit; established consensus.",
+        "generalization": "source_bounded",
+        "evidence_decisions": {
+          "E1": {
+            "relation": "supports",
+            "rationale": "Indirect, limited positive pattern motivating candidate; insufficient for universal wording."
+          },
+          "E3": {
+            "relation": "contradicts",
+            "rationale": "Negative immediate pattern challenges the unconditional proposition."
+          },
+          "E2": {
+            "relation": "qualifies",
+            "rationale": "Delayed null limits extending retention labels."
+          }
+        }
+      },
+      "semantic_rationale": "Actual Codex assessment: structurally traceable candidate is semantically unsupported and must not be approved.",
+      "semantic_outcome": "unsupported",
+      "semantic_check_overrides": {
+        "generalization": {
+          "status": "fail",
+          "reason": "The word all exceeds represented and commensurable evidence."
+        },
+        "contradictions": {
+          "status": "fail",
+          "reason": "The positive proposition fails to accommodate B's negative pattern."
+        }
+      }
+    },
+    {
+      "alias": "L1",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C1",
+        "evidence_id": "E1",
+        "evidence_ids": [
+          "E1"
+        ],
+        "relation": "supports",
+        "directness": "direct_source",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "A directly reports this local association, not causation."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L2",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C1",
+        "evidence_id": "E2",
+        "evidence_ids": [
+          "E2"
+        ],
+        "relation": "qualifies",
+        "directness": "direct_source",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Delayed null prevents transfer-outcome generalization; null is not equivalence."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L3",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C1",
+        "evidence_id": "E3",
+        "evidence_ids": [
+          "E3"
+        ],
+        "relation": "qualifies",
+        "directness": "indirect",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Different task/design challenges extension but does not refute A's local estimate."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L4",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C2",
+        "evidence_id": "E6",
+        "evidence_ids": [
+          "E6"
+        ],
+        "relation": "supports",
+        "directness": "direct_source",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Direct source of a proposed explanation."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L5",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C2",
+        "evidence_id": "E7",
+        "evidence_ids": [
+          "E7"
+        ],
+        "relation": "context",
+        "directness": "secondary_citation",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Uninspected original; contextual secondary report only."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L6",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C2",
+        "evidence_id": "E8",
+        "evidence_ids": [
+          "E8"
+        ],
+        "relation": "uncertain",
+        "directness": "direct_source",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Source explicitly does not settle mechanism."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L7",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C3",
+        "evidence_id": "E1",
+        "evidence_ids": [
+          "E1"
+        ],
+        "relation": "supports",
+        "directness": "indirect",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Limited positive source; insufficient alone for all-context proposition."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L8",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C3",
+        "evidence_id": "E3",
+        "evidence_ids": [
+          "E3"
+        ],
+        "relation": "contradicts",
+        "directness": "direct_source",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Negative pattern counters universal benefit."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "L9",
+      "kind": "link",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "claim_id": "C3",
+        "evidence_id": "E2",
+        "evidence_ids": [
+          "E2"
+        ],
+        "relation": "qualifies",
+        "directness": "direct_source",
+        "strength": "Bounded relationship; see rationale.",
+        "rationale": "Delayed transfer is null, limiting generic retention wording."
+      },
+      "semantic_rationale": "The relationship is explicitly assessed; supports does not mean sufficient support for the entire candidate.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "G1",
+      "kind": "gap",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "evidence_ids": [
+          "E1",
+          "E2",
+          "E3",
+          "E6",
+          "E8"
+        ],
+        "record_refs": [
+          "C1",
+          "C2"
+        ],
+        "gap_type": "methodological_limitation",
+        "scope": "reviewed_corpus",
+        "basis_kind": "documented_design_limit",
+        "established": "A reports association and D proposes a mechanism.",
+        "unresolved": "Cross-design patterns cannot identify the role of delivery timing.",
+        "methodological_justification": "Task, setting, allocation and outcome vary together; a comparison with matched measures could discriminate alternatives.",
+        "proposed_research_question": "Under matched retention measures and task content, how do voluntary versus timed delivery and feedback timing relate to observed patterns?",
+        "confidence": "Provisional methodological question, not validated novelty.",
+        "search_limitations": "No actual search; fixture-only basis cannot establish a field gap.",
+        "coverage_basis": "Four deliberately constructed sources; design limitation documented in E1/E2/E3.",
+        "derivation": "Within the reviewed and retrieved corpus, confounded differences leave a comparison question unresolved; broader search is required before calling this a genuine research gap.",
+        "unresolved_contradictions": "A/B directions differ but are not commensurate; D does not explain the difference."
+      },
+      "semantic_rationale": "Derived from documented design and mechanism uncertainty, not from merely having few papers.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "ASSESS-theme",
+      "kind": "assessment",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "map_kind": "theme",
+        "record_refs": [
+          "T1"
+        ],
+        "disposition": "populated",
+        "rationale": "All deliberately selected evidence considered; maps do not assert corpus completeness beyond fixture."
+      },
+      "semantic_rationale": "Coverage assessment only, not human approval.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "ASSESS-theory",
+      "kind": "assessment",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "map_kind": "theory",
+        "record_refs": [
+          "TH1"
+        ],
+        "disposition": "populated",
+        "rationale": "All deliberately selected evidence considered; maps do not assert corpus completeness beyond fixture."
+      },
+      "semantic_rationale": "Coverage assessment only, not human approval.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "ASSESS-method",
+      "kind": "assessment",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "map_kind": "method",
+        "record_refs": [
+          "M1"
+        ],
+        "disposition": "populated",
+        "rationale": "All deliberately selected evidence considered; maps do not assert corpus completeness beyond fixture."
+      },
+      "semantic_rationale": "Coverage assessment only, not human approval.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "ASSESS-controversy",
+      "kind": "assessment",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "map_kind": "controversy",
+        "record_refs": [
+          "X1"
+        ],
+        "disposition": "populated",
+        "rationale": "All deliberately selected evidence considered; maps do not assert corpus completeness beyond fixture."
+      },
+      "semantic_rationale": "Coverage assessment only, not human approval.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "ASSESS-boundary",
+      "kind": "assessment",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "map_kind": "boundary",
+        "record_refs": [
+          "B1"
+        ],
+        "disposition": "populated",
+        "rationale": "All deliberately selected evidence considered; maps do not assert corpus completeness beyond fixture."
+      },
+      "semantic_rationale": "Coverage assessment only, not human approval.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "ASSESS-claim",
+      "kind": "assessment",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "map_kind": "claim",
+        "record_refs": [
+          "C1",
+          "C2",
+          "C3"
+        ],
+        "disposition": "populated",
+        "rationale": "All candidates listed, including rejected C3; no formal claim completion."
+      },
+      "semantic_rationale": "Coverage assessment only, not human approval.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    },
+    {
+      "alias": "ASSESS-gap",
+      "kind": "assessment",
+      "content": {
+        "uncertainty": "Fictional and provisional; no independent human validation.",
+        "map_kind": "gap",
+        "record_refs": [
+          "G1"
+        ],
+        "disposition": "populated",
+        "rationale": "All deliberately selected evidence considered; maps do not assert corpus completeness beyond fixture."
+      },
+      "semantic_rationale": "Coverage assessment only, not human approval.",
+      "semantic_outcome": "supported",
+      "semantic_check_overrides": {}
+    }
+  ]
+}

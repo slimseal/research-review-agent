@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.0.0",
+  "workflow_registry_version": "1.0.0",
+  "project_id": "RRA-27575D09FA",
+  "research_question": "What can microwear analysis of ground-stone tools contribute to interpretations of plant-processing practices in early farming settlements?",
+  "domain": "unspecified",
+  "seq": 3,
+  "created_at": "2026-10-15T09:48:37+00:00",
+  "updated_at": "2026-10-15T09:53:48+00:00",
+  "phases": {
+    "0": {
+      "name": "Review protocol",
+      "status": "in_progress",
+      "updated_at": null,
+      "note": ""
+    },
+    "1": {
+      "name": "Search concept map",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "2": {
+      "name": "Search strings",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "3": {
+      "name": "Scholarly discovery",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "4": {
+      "name": "Citation snowballing",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "5": {
+      "name": "Paper acquisition and registry",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "6": {
+      "name": "Literature screening",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "7": {
+      "name": "Full-text reading",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "8": {
+      "name": "Evidence extraction",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "9": {
+      "name": "Initial synthesis",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "10": {
+      "name": "Boundary-condition analysis",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "11": {
+      "name": "Claim map",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "12": {
+      "name": "Gap analysis",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "13": {
+      "name": "Review architecture",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "14": {
+      "name": "Section briefs",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "15": {
+      "name": "Section-by-section drafting",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "16": {
+      "name": "Bibliography management",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "17": {
+      "name": "Claim-evidence audit",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    },
+    "18": {
+      "name": "Human quality control",
+      "status": "pending",
+      "updated_at": null,
+      "note": ""
+    }
+  },
+  "gate_results": {}
+}

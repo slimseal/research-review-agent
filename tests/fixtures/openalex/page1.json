@@ -1,0 +1,34 @@
+{
+  "meta": {"count": 3, "per_page": 2, "next_cursor": "CURSOR_PAGE_2"},
+  "results": [
+    {
+      "id": "https://openalex.org/W900000001",
+      "doi": "https://doi.org/10.5555/FICTIONAL.ALPHA",
+      "display_name": "Fictional alpha metadata record",
+      "publication_year": 2020,
+      "type": "article",
+      "authorships": [{"author": {"display_name": "Ána García"}}],
+      "primary_location": {
+        "landing_page_url": "https://example.invalid/alpha",
+        "version": "publishedVersion",
+        "source": {"display_name": "Fictional Metadata Journal"}
+      },
+      "abstract_inverted_index": {"Synthetic": [0], "abstract": [1], "only": [2]},
+      "ids": {"openalex": "https://openalex.org/W900000001", "doi": "https://doi.org/10.5555/FICTIONAL.ALPHA"}
+    },
+    {
+      "id": "https://openalex.org/W900000002",
+      "display_name": "虚构考古材料记录",
+      "publication_year": 1999,
+      "type": "preprint",
+      "authorships": [{"author": {"display_name": "李伟"}}],
+      "primary_location": {
+        "landing_page_url": "https://example.invalid/beta",
+        "version": "submittedVersion",
+        "source": {"display_name": "Fictional Repository"}
+      },
+      "abstract_inverted_index": null,
+      "ids": {"openalex": "https://openalex.org/W900000002"}
+    }
+  ]
+}
