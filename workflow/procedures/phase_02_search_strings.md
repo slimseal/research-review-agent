@@ -11,6 +11,10 @@ Design reproducible, database-aware search strategies from the approved concept 
 
 ## Research operations
 
+Translate queries only for databases explicitly selected by the researcher: Crossref, OpenAlex, PubMed, Europe PMC, Semantic Scholar, ERIC, arXiv or OpenAIRE Graph v3 in current native metadata search. Recommend complementary sources when none are named, but execute only the confirmed plan. Missing choices require clarification; unsupported databases require a truthful capability assessment, not silent substitution or new development.
+
+Confirm exact provider syntax, query/filter plan, actual-request/retry and page/record budgets, and public/credential/institutional access before Phase 3. Include access probes and PubMed ESearch/EFetch subrequests in the total; ordinary requests within this confirmed plan need no repeated permission. Record the chosen sources and coverage limits in `SEARCH_STRINGS.md` and decision notes. Planning is not execution or approval.
+
 1. Select query families needed for this protocol, such as broad discovery, specific subquestions, named periods, source genres or methods.
 2. Combine concept blocks with documented Boolean, phrase, truncation and proximity choices.
 3. Produce database-specific translations only for identified target systems.

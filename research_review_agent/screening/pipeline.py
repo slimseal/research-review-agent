@@ -215,6 +215,22 @@ class ScreeningPipeline:
                 records = body.get("items", [body]) if isinstance(body, dict) else []
             elif provider == "openalex":
                 records = obj.get("results", [obj])
+            elif provider in {"pubmed", "europepmc", "semantic_scholar", "eric", "arxiv", "openaire"}:
+                from ..scholarly.public_providers import records_from_payload
+                from ..scholarly.normalization import normalize_provider_records
+                records, _ = records_from_payload(provider, obj)
+                # Bind to the recorded provider identity, not a similarly titled row.
+                normalized = normalize_provider_records(provider, records, search_run_id="screening-read",
+                    retrieved_at="", raw_response_path=relative)
+                for candidate in normalized.candidates:
+                    if candidate.provider_record_id not in record.get("provider_ids", {}).get(provider, []):
+                        continue
+                    if candidate.abstract:
+                        raw_key = {"europepmc": "abstractText", "eric": "description", "openaire": "descriptions"}.get(provider, "abstract")
+                        raw = records[candidate.raw_record_index].get(raw_key)
+                        return {"text": candidate.abstract, "original": raw, "provider": provider,
+                                "raw_response_path": relative, "raw_sha256": checksum(path), "provenance": pointer}
+                continue
             else:
                 continue
             for row in records:

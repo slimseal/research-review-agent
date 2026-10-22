@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import os
 import tempfile
 import uuid
@@ -31,6 +32,19 @@ def _source_key(provider: str, provider_record_id: str) -> str:
     return f"{provider}:{provider_record_id}"
 
 
+def biomedical_identifiers(source_ids):
+    """Exact, namespaced aliases only. Never treat a bare number as a global ID."""
+    result = set()
+    for name, value in source_ids.items():
+        name = name.casefold()
+        value = str(value).strip().rstrip("/").rsplit("/", 1)[-1]
+        if name in {"pmid", "pubmed"} and value.isdigit():
+            result.add("pmid:" + value)
+        if name in {"pmcid", "pmc", "pubmedcentral"} and re.fullmatch(r"PMC\d+", value, re.I):
+            result.add("pmcid:" + value.upper())
+    return result
+
+
 def _blank_registry() -> dict[str, Any]:
     return {
         "registry_version": REGISTRY_VERSION,
@@ -49,6 +63,15 @@ class PaperRegistry:
         self.store = store or DiscoveryStore(self.project_root)
         self.path = self.project_root / "03_library/PAPER_IDENTITIES.json"
         self.data = self._load()
+        # Rebuild in memory from authoritative provenance; legacy registries remain readable.
+        self.biomedical_index = {}
+        for pid, record in self.data["records"].items():
+            for origin in record.get("provenance", []):
+                self._index_biomedical(pid, origin.get("source_ids", {}))
+
+    def _index_biomedical(self, paper_id, source_ids):
+        for identifier in biomedical_identifiers(source_ids):
+            self.biomedical_index.setdefault(identifier, set()).add(paper_id)
 
     def _load(self) -> dict[str, Any]:
         if not self.path.exists():
@@ -97,7 +120,32 @@ class PaperRegistry:
         elif normalized_title:
             competing = list(dict.fromkeys(self.data["title_index"].get(normalized_title, [])))
 
-        if competing and not matched_id:
+        if matched_id and method == "title_first_author_year" and (
+                candidate.version_type == "preprint" or records[matched_id].get("version_type") == "preprint"):
+            # A deposited version is not interchangeable with a journal manifestation or another version.
+            matched_id, separate_version = None, True
+
+        identifier_matches = set().union(*(self.biomedical_index.get(key, set())
+            for key in biomedical_identifiers(candidate.source_ids)))
+        if identifier_matches:
+            if len(identifier_matches) != 1 or (matched_id and matched_id not in identifier_matches):
+                competing = sorted(identifier_matches | ({matched_id} if matched_id else set()))
+                matched_id = None
+            else:
+                possible_id = next(iter(identifier_matches))
+                existing_doi = normalize_doi(records[possible_id].get("doi"))
+                if doi and existing_doi and doi != existing_doi:
+                    competing, matched_id = [possible_id], None
+                elif candidate.version_type == "preprint" and records[possible_id].get("version_type") != "preprint":
+                    competing, matched_id = [possible_id], None
+                else:
+                    matched_id, method, competing = possible_id, "exact_biomedical_identifier", []
+
+        aggregate_ambiguity = candidate.relations.get("identity_ambiguity")
+        if aggregate_ambiguity and matched_id:
+            competing = sorted(set(competing + [matched_id]))
+            matched_id = None
+        if aggregate_ambiguity or (competing and not matched_id):
             identity = IdentityMatch(
                 candidate_provider=candidate.provider,
                 candidate_provider_record_id=candidate.provider_record_id,
@@ -108,7 +156,7 @@ class PaperRegistry:
                 confidence="uncertain",
                 candidate_fingerprint=fingerprint,
                 competing_paper_ids=competing,
-                notes=["Candidate was not merged because more than one identity interpretation remains possible."],
+                notes=[str(aggregate_ambiguity or "Candidate was not merged because more than one identity interpretation remains possible.")],
                 decided_at=now,
             )
             self.store.append_identity_match(identity.to_dict())
@@ -118,7 +166,7 @@ class PaperRegistry:
         if matched_id:
             resolution = self._merge_record(matched_id, candidate)
             status = "duplicate"
-            confidence = "high" if method in {"provider_identifier", "verified_doi"} else "moderate"
+            confidence = "high" if method in {"provider_identifier", "verified_doi", "exact_biomedical_identifier"} else "moderate"
         else:
             matched_id = self._create_record(candidate)
             status = "created"
@@ -182,6 +230,7 @@ class PaperRegistry:
         return paper_id
 
     def _index_record(self, paper_id: str, candidate: PaperCandidate) -> None:
+        self._index_biomedical(paper_id, candidate.source_ids)
         self.data["provider_index"][_source_key(candidate.provider, candidate.provider_record_id)] = paper_id
         doi = normalize_doi(candidate.doi)
         if doi:
@@ -203,7 +252,7 @@ class PaperRegistry:
         current = self.data["records"][paper_id]
         for related_id in related:
             other = self.data["records"][related_id]
-            if normalize_doi(current.get("doi")) == normalize_doi(other.get("doi")):
+            if current.get("doi") and normalize_doi(current.get("doi")) == normalize_doi(other.get("doi")):
                 continue
             if candidate.version_type == "unknown" and other.get("version_type") == "unknown":
                 continue
@@ -293,6 +342,11 @@ class PaperRegistry:
             "raw_record_index": candidate.raw_record_index,
             "search_run_id": candidate.search_run_id,
             "retrieved_at": candidate.retrieved_at,
+            "source_ids": dict(candidate.source_ids),
+            "relations": dict(candidate.relations),
+            "work_type": candidate.work_type,
+            "version_type": candidate.version_type,
+            "abstract_available": bool(candidate.abstract),
         }
 
     def _write_registry_csv(self) -> None:

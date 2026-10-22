@@ -28,7 +28,7 @@ _CAPABILITIES = (
     Capability("citation_snowballing", "available_with_network", "packaged_citation_adapters", "Crossref backward, OpenAlex forward, OpenCitations backward/forward. Bounded runs, raw replay, explicit seed/stop review. Related recommendations not implemented."),
     Capability("project_cli", "available", "project", "Initialization, validation, gates, state, and recovery are self-contained."),
     Capability("protocol_drafting", "available", "registered_procedure_and_cli", "The Phase 0 procedure guides research design; the CLI persists and validates drafts."),
-    Capability("scholarly_discovery", "available_with_network", "packaged_openalex_and_crossref_adapters", "OpenAlex and Crossref metadata adapters are bundled; live results still require network and provider policy compliance."),
+    Capability("scholarly_discovery", "available_with_network", "packaged_metadata_adapters", "Crossref, OpenAlex, PubMed, Europe PMC, Semantic Scholar, ERIC, arXiv and OpenAIRE JSON Graph v3 adapters are bundled. Implementation/configuration is not live availability; check selected endpoints with provider-status --probe and explicit budget."),
     Capability("paper_acquisition", "available_with_optional_parser", "packaged_document_tools", "Authorized local import and public publisher PDF links; install the pdf extra for integrity validation. No subscription access."),
     Capability("bibliography_enrichment", "available_with_network", "packaged_crossref_adapter", "Crossref DOI resolution and metadata reconciliation are bundled; this does not acquire or verify full text."),
     Capability("full_text_pdf_reading", "external_tool_required", "external_or_codex_tool", "Requires an accessible PDF reader/tool and lawful local full text."),

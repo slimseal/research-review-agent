@@ -29,6 +29,8 @@ class SearchRequest(SerializableContract):
     cursor: str | None = None
     sort: str | None = None
     mode: str = "workflow"
+    max_requests: int | None = None
+    max_attempts: int = 1
     contract_version: str = CONTRACT_VERSION
 
 
@@ -60,6 +62,9 @@ class SearchRun(SerializableContract):
     pages_completed: int = 0
     completed_at: str | None = None
     replay_of: str | None = None
+    request_configuration: dict[str, Any] = field(default_factory=dict)
+    http_attempts: int = 0
+    http_receipt_path: str | None = None
     contract_version: str = CONTRACT_VERSION
 
 

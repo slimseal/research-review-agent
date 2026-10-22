@@ -6,6 +6,12 @@ Convert the user's research question into a case-neutral protocol that makes sco
 
 ## Required inputs
 
+### Beginner source planning
+
+Given the RQ and necessary scope, recommend complementary sources rather than asking beginners to name databases or configure multiple keys. Respect explicit choices/exclusions. Use `source-plan` as an offline heuristic, then apply discipline-aware judgment. Prepare `LITERATURE_SOURCE_PLAN.json` with available, free-setup, institutional, manual-supplement and unimplemented/unverified groups. Unknown endpoint status stays `not_verified`.
+
+Record recommendations, rationale, access modes, coverage limits and pending confirmation in existing draft `search` fields and `DECISIONS.md`. Obtain one source/query/HTTP budget confirmation covering probes, metadata subrequests, retries and pagination before live operations; Protocol and scientific reviews remain separate. Optional unavailable providers do not block other authorized sources. Preserve approved Protocols and all existing Gates. Follow [database access](../../docs/database-access.md) in a checkout; installed clients follow AGENTS.md and CLI help.
+
 - The user's exact research question and any stated domain, population, place, period or source constraints.
 - Any explicit methodological preferences or intended review product.
 - The current schema catalog and universal evidence model.

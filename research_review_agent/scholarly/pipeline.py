@@ -13,7 +13,9 @@ from ..state import load_state, persist_state, utc_now
 from ..validation import validate_protocol
 from .contracts import ProviderFailure, ProviderResponse, SearchRequest, SearchRun
 from .normalization import normalize_doi, normalize_provider_records
-from .providers import CrossrefAdapter, FetchedPage, OpenAlexAdapter
+from .providers import FetchedPage, make_adapters
+from .access import PAGE_LIMITS
+from .request_budget import RecordedTransport
 from .registry import PaperRegistry
 from .store import DiscoveryStore, RawResponseIntegrityError
 from .transport import ProviderRequestError
@@ -36,10 +38,8 @@ class ScholarlyDiscoveryPipeline:
         self.project_root = project_root.resolve()
         self.store = DiscoveryStore(self.project_root)
         self.registry = PaperRegistry(self.project_root, self.store)
-        self.adapters = adapters or {
-            "openalex": OpenAlexAdapter(),
-            "crossref": CrossrefAdapter(),
-        }
+        self._custom_adapters = adapters is not None
+        self.adapters = adapters if adapters is not None else make_adapters()
         self.enforce_workflow = enforce_workflow
 
     def run_search(self, request: SearchRequest, *, resume_run_id: str | None = None) -> SearchRun:
@@ -49,14 +49,21 @@ class ScholarlyDiscoveryPipeline:
             raise ValueError(f"UNSUPPORTED_PROVIDER: {request.provider}")
         if not request.exact_query.strip():
             raise ValueError("EMPTY_SEARCH_QUERY")
-        if request.per_page < 1 or request.per_page > (100 if request.provider == "openalex" else 1000):
+        if request.per_page < 1 or request.per_page > PAGE_LIMITS.get(request.provider, 100):
             raise ValueError("INVALID_PER_PAGE")
         if request.max_pages < 1:
             raise ValueError("INVALID_MAX_PAGES")
+        budget = request.max_requests if request.max_requests is not None else request.max_pages * (2 if request.provider == "pubmed" else 1)
+        if budget < 1 or request.max_attempts < 1 or request.max_attempts > budget:
+            raise ValueError("INVALID_HTTP_BUDGET")
+        request_config = {"per_page": request.per_page, "sort": request.sort,
+                          "max_requests": budget, "max_attempts": request.max_attempts}
 
         if resume_run_id:
             run = self.store.load_run(resume_run_id)
             self._assert_resume_matches(run, request)
+            if run.request_configuration and run.request_configuration != request_config:
+                raise ValueError("RESUME_REQUEST_CONFIGURATION_MISMATCH")
             if run.retrieval_status in {"complete", "complete_empty", "complete_with_limit", "replayed"}:
                 return run
             if run.errors:
@@ -83,9 +90,14 @@ class ScholarlyDiscoveryPipeline:
                 execution_timestamp=utc_now(),
                 retrieval_status="running",
                 pagination_cursor=request.cursor or "*",
+                request_configuration=request_config,
             )
             cursor = request.cursor or "*"
         self.store.save_run(run)
+        if not self._custom_adapters:
+            transport = RecordedTransport(self.project_root / "02_discovery/http" / run.search_run_id,
+                                          max_requests=budget, max_attempts=request.max_attempts)
+            self.adapters = make_adapters(transport)
         adapter = self.adapters[request.provider]
 
         for _ in range(request.max_pages):
@@ -95,6 +107,10 @@ class ScholarlyDiscoveryPipeline:
                 self._process_page(run, page, page_number)
             except ProviderRequestError as exc:
                 self._record_failure(run, exc.failure)
+                return self._finalize(run)
+            except (KeyError, TypeError, AttributeError, UnicodeError):
+                self._record_failure(run, ProviderFailure("MALFORMED_RESPONSE", request.provider,
+                    "Provider record shape or encoding is invalid; response remains available for inspection.", utc_now(), False, 1))
                 return self._finalize(run)
             except (RawResponseIntegrityError, json.JSONDecodeError, OSError, ValueError) as exc:
                 failure = ProviderFailure(
@@ -166,6 +182,11 @@ class ScholarlyDiscoveryPipeline:
         )
         self.store.save_run(run)
         try:
+            if not self._custom_adapters:
+                transport = RecordedTransport(self.project_root / "02_discovery/http" / run.search_run_id,
+                    max_requests=request.max_requests if request.max_requests is not None else 1,
+                    max_attempts=request.max_attempts)
+                self.adapters = make_adapters(transport)
             page = self.adapters["crossref"].fetch_doi(normalized)
             self._process_page(run, page, 1)
             run.retrieval_status = "complete" if run.retrieved_count else "complete_empty"
@@ -317,6 +338,13 @@ class ScholarlyDiscoveryPipeline:
         self.store.save_run(run)
 
     def _finalize(self, run: SearchRun) -> SearchRun:
+        receipt_path = self.project_root / "02_discovery/http" / run.search_run_id / "budget.json"
+        transport = getattr(self.adapters.get(run.provider), "transport", None)
+        if isinstance(transport, RecordedTransport) and not run.replay_of and self.project_root in transport.path.resolve().parents:
+            receipt_path = transport.path
+            run.http_receipt_path = self.store.relative(receipt_path)
+        if receipt_path.exists():
+            run.http_attempts = len(json.loads(receipt_path.read_text())["receipts"])
         run.completed_at = utc_now()
         self.store.save_run(run)
         self._upsert_search_log(run)
@@ -381,6 +409,9 @@ class ScholarlyDiscoveryPipeline:
 
     @staticmethod
     def _records_from_payload(provider: str, payload: dict[str, Any]) -> tuple[list[dict[str, Any]], str | None]:
+        if provider in {"pubmed", "europepmc", "semantic_scholar", "eric", "arxiv", "openaire"}:
+            from .public_providers import records_from_payload
+            return records_from_payload(provider, payload)
         if provider == "openalex":
             records = payload.get("results")
             meta = payload.get("meta")
@@ -415,7 +446,7 @@ class ScholarlyDiscoveryPipeline:
             "query": run.exact_query,
             "filters": json.dumps(run.filters, ensure_ascii=False, sort_keys=True),
             "searched_at": run.execution_timestamp,
-            "result_count": str(run.retrieved_count),
+            "result_count": "" if run.retrieval_status == "failed" and not run.retrieved_count else str(run.retrieved_count),
             "status": run.retrieval_status,
             "failure_reason": ";".join(error_codes),
             "example_data": "false",

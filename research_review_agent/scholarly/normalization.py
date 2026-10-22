@@ -260,6 +260,12 @@ def normalize_provider_records(
     retrieved_at: str,
     raw_response_path: str,
 ) -> NormalizationResult:
+    if provider in {"eric", "arxiv", "openaire"}:
+        return normalize_open_records(provider, records, search_run_id=search_run_id,
+                                      retrieved_at=retrieved_at, raw_response_path=raw_response_path)
+    if provider in {"pubmed", "europepmc", "semantic_scholar"}:
+        return normalize_public_records(provider, records, search_run_id=search_run_id,
+                                        retrieved_at=retrieved_at, raw_response_path=raw_response_path)
     if provider == "openalex":
         return normalize_openalex_records(
             records,
@@ -275,3 +281,131 @@ def normalize_provider_records(
             raw_response_path=raw_response_path,
         )
     raise ValueError(f"UNSUPPORTED_PROVIDER: {provider}")
+
+
+def normalize_public_records(provider, records, *, search_run_id, retrieved_at, raw_response_path):
+    result = NormalizationResult()
+    for index, row in enumerate(records):
+        title = _first_text(row.get("title"))
+        if provider == "europepmc":
+            identifier = f"{row.get('source')}:{row.get('id')}" if row.get("source") and row.get("id") else None
+            author_rows = (row.get("authorList") or {}).get("author", [])
+            authors = [r["fullName"] for r in author_rows if isinstance(r, dict) and r.get("fullName")]
+            year = row.get("pubYear")
+            journal = ((row.get("journalInfo") or {}).get("journal") or {}).get("title")
+            doi = normalize_doi(row.get("doi"))
+            abstract = _clean_abstract(row.get("abstractText"))
+            ids = {k: str(row[k]) for k in ("pmid", "pmcid") if row.get(k)}
+            if row.get("source") == "MED" and str(row.get("id", "")).isdigit():
+                ids.setdefault("pmid", str(row["id"]))
+            url = f"https://europepmc.org/article/{row['source']}/{row['id']}" if identifier else None
+            types = (row.get("pubTypeList") or {}).get("pubType", [])
+        elif provider == "semantic_scholar":
+            identifier = row.get("paperId")
+            authors = [r["name"] for r in row.get("authors", []) if isinstance(r, dict) and r.get("name")]
+            year, journal = row.get("year"), row.get("venue")
+            external = row.get("externalIds") or {}
+            doi = normalize_doi(external.get("DOI"))
+            abstract = _clean_abstract(row.get("abstract"))
+            ids = {str(k): str(v) for k, v in external.items() if v is not None}
+            url, types = row.get("url"), row.get("publicationTypes") or []
+        else:
+            identifier = row.get("id")
+            authors, year, journal = row.get("authors", []), row.get("year"), row.get("journal")
+            doi, abstract = normalize_doi(row.get("doi")), _clean_abstract(row.get("abstract"))
+            ids = {"pmid": str(identifier)} if identifier else {}
+            if row.get("pmcid"):
+                ids["pmcid"] = row["pmcid"]
+            url, types = f"https://pubmed.ncbi.nlm.nih.gov/{identifier}/" if identifier else None, row.get("publication_types", [])
+        if not identifier or not title:
+            result.rejected_count += 1
+            result.warnings.append(f"MALFORMED_RECORD:{provider}:{index}")
+            continue
+        ids[provider] = str(identifier)
+        candidate = PaperCandidate(provider, str(identifier), search_run_id, retrieved_at, raw_response_path,
+                                   index, title, authors, int(year) if str(year).isdigit() else None, journal or None,
+                                   doi, url, "; ".join(types) or None, "unknown", abstract, source_ids=ids)
+        result.candidates.append(candidate)
+        if not abstract:
+            result.warnings.append(f"MISSING_ABSTRACT:{provider}:{identifier}")
+        if not doi:
+            result.warnings.append(f"MISSING_DOI:{provider}:{identifier}")
+    return result
+
+
+def normalize_open_records(provider, records, *, search_run_id, retrieved_at, raw_response_path):
+    result = NormalizationResult()
+    for index, row in enumerate(records):
+        identifier = str(row.get("id") or "")
+        ids, relations = {provider: identifier}, {}
+        doi, journal, version = None, None, "unknown"
+        if provider == "eric":
+            title = _first_text(row.get("title"))
+            authors = row.get("author") or []
+            if isinstance(authors, str):
+                authors = [authors]
+            year = row.get("publicationdateyear")
+            journal = _first_text(row.get("source"))
+            abstract = _clean_abstract(_first_text(row.get("description")))
+            urls = row.get("url") or []
+            urls = [urls] if isinstance(urls, str) else urls
+            # Only explicitly DOI-formatted URLs/fields, never a guessed DOI from a title.
+            doi = normalize_doi(_first_text(row.get("doi"))) or next(
+                (d for u in urls if (d := normalize_doi(u))), None)
+            kind = row.get("publicationtype") or []
+            kind = "; ".join(kind) if isinstance(kind, list) else str(kind)
+            url = f"https://eric.ed.gov/?id={identifier}"
+            relations = {"provider_peerreviewed": row.get("peerreviewed"), "source_urls": urls}
+        elif provider == "arxiv":
+            title, authors = _first_text(row.get("title")), row.get("authors") or []
+            year = str(row.get("published") or "")[:4]
+            abstract, url = _clean_abstract(row.get("abstract")), row.get("url")
+            kind, version = "preprint", "preprint"
+            # arXiv's DOI can identify a later publication, not this exact deposited version.
+            relations = {"published_doi": normalize_doi(row.get("doi")), "arxiv_version": row.get("version"),
+                         "updated": row.get("updated"), "journal_reference": row.get("journal_ref"),
+                         "categories": row.get("categories", [])}
+        elif provider == "openaire":
+            title = _first_text(row.get("mainTitle"))
+            authors = [a["fullName"] for a in (row.get("authors") or []) if isinstance(a, dict) and a.get("fullName")]
+            year = str(row.get("publicationDate") or "")[:4]
+            abstract = _clean_abstract("\n".join(row.get("descriptions") or []))
+            pids = row.get("pids") or []
+            # Multiple distinct DOI values require identity review; retain all upstream IDs.
+            dois = sorted({d for p in pids if p.get("scheme", "").lower() == "doi" and (d := normalize_doi(p.get("value")))})
+            doi = dois[0] if len(dois) == 1 else None
+            for scheme in ("pmid", "pmc", "pmcid"):
+                values = {str(p["value"]) for p in pids if p.get("scheme", "").lower() == scheme and p.get("value")}
+                if len(values) == 1:
+                    ids["pmcid" if scheme == "pmc" else scheme] = values.pop()
+            kind = row.get("type")
+            url = f"https://explore.openaire.eu/search/result?id={identifier}"
+            journal = (row.get("container") or {}).get("name")
+            relations = {"original_ids": row.get("originalIds", []), "pids": pids,
+                         "instances": row.get("instances", []), "provider_type": kind,
+                         "provider_is_peer_reviewed": row.get("isPeerReviewed")}
+            id_groups = {}
+            for p in pids:
+                scheme = str(p.get("scheme", "")).lower()
+                scheme = "pmcid" if scheme == "pmc" else scheme
+                if scheme in {"doi", "pmid", "pmcid"} and p.get("value"):
+                    id_groups.setdefault(scheme, set()).add(str(p["value"]).casefold())
+            ambiguous = sorted(k for k, values in id_groups.items() if len(values) > 1)
+            if ambiguous:
+                relations["identity_ambiguity"] = "Multiple distinct primary identifiers in Graph aggregate: " + ", ".join(ambiguous)
+            if len(dois) > 1:
+                result.warnings.append(f"MULTIPLE_DOIS_REQUIRE_REVIEW:{provider}:{identifier}")
+        else:
+            raise ValueError("UNSUPPORTED_PROVIDER")
+        if not identifier or not title:
+            result.rejected_count += 1
+            result.warnings.append(f"MALFORMED_RECORD:{provider}:{index}")
+            continue
+        result.candidates.append(PaperCandidate(provider, identifier, search_run_id, retrieved_at,
+            raw_response_path, index, title, authors, int(year) if str(year).isdigit() else None,
+            journal, doi, url, kind or None, version, abstract, source_ids=ids, relations=relations))
+        if not abstract:
+            result.warnings.append(f"MISSING_ABSTRACT:{provider}:{identifier}")
+        if not doi:
+            result.warnings.append(f"MISSING_DOI:{provider}:{identifier}")
+    return result

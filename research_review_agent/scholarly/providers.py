@@ -254,7 +254,8 @@ class CrossrefAdapter:
 
 
 def provider_configuration() -> dict[str, dict[str, Any]]:
-    return {
+    from .access import access_configuration
+    legacy = {
         "opencitations": {
             "adapter_packaged": True,
             "network_required": True,
@@ -281,4 +282,20 @@ def provider_configuration() -> dict[str, dict[str, Any]]:
             "plus_token_configured": bool(os.environ.get("CROSSREF_PLUS_API_TOKEN")),
             "plus_token_environment_variable": "CROSSREF_PLUS_API_TOKEN",
         },
+    }
+    for name, value in access_configuration().items():
+        legacy[name] = {**legacy.get(name, {}), **value}
+    return legacy
+
+
+def make_adapters(transport=None, *, anonymous=False):
+    from .public_providers import EuropePMCAdapter, PubMedAdapter, SemanticScholarAdapter
+    from .open_providers import ERICAdapter, ArxivAdapter, OpenAIREAdapter
+    return {
+        "eric": ERICAdapter(transport), "arxiv": ArxivAdapter(transport), "openaire": OpenAIREAdapter(transport),
+        "crossref": CrossrefAdapter(transport, mailto="" if anonymous else None, plus_token="" if anonymous else None),
+        "openalex": OpenAlexAdapter(transport, api_key="" if anonymous else None),
+        "pubmed": PubMedAdapter(transport, api_key="" if anonymous else None),
+        "europepmc": EuropePMCAdapter(transport),
+        "semantic_scholar": SemanticScholarAdapter(transport, api_key="" if anonymous else None),
     }
