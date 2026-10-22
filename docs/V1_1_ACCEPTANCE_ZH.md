@@ -1,6 +1,9 @@
 # V1.1 整合验收与发布准备
 
 日期：2026-10-22。分支：`codex/v1.1-database-access`。
+本文件保留整合验收时的历史记录。负责人随后已授权 MIT 与 GitHub 发布；当前许可见
+[LICENSE](../LICENSE)，当前发布说明见 [Release Notes](V1_1_RELEASE_NOTES.md)。
+下文“许可待定/尚未发布”仅描述当时检查点，不代表现行许可。
 结论：**可准备受限声明的 Experimental 源码提交；不应宣称全部验收通过或无条件 Release-ready。**
 本轮仅整合文档与验收，没有新增接口、修改实现/测试、科研审批、检索或下载。
 

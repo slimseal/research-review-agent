@@ -2,8 +2,10 @@
 
 Start with the [Beginner Quick Start](beginner-quick-start.md) if you do not use a terminal.
 Ask Codex to explain and perform these local setup steps with your permission.
-**V1.1 is not yet published:** until the owner publishes the revision, GitHub main/ZIP
-contains V1. This guide describes the local V1.1 release candidate, not an existing Release.
+For a fixed version, download the source ZIP from the
+[v1.1-experimental pre-release](https://github.com/slimseal/research-review-agent/releases/tag/v1.1-experimental).
+The project uses [MIT](../LICENSE); third-party rights remain separate. The package
+version is still `0.1.0.dev0`, not PyPI 1.1. No binary installer is supplied.
 
 ## Requirements
 

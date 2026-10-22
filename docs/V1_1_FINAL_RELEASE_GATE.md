@@ -2,6 +2,11 @@
 
 Date: 2026-10-22. Branch: `codex/v1.1-database-access`.
 
+**Historical verification record:** the checks below predate publication. The owner
+subsequently authorized MIT licensing and GitHub publication; current licensing is
+in [LICENSE](../LICENSE) and current distribution notes are in [Release Notes](V1_1_RELEASE_NOTES.md).
+Statements below about pending licensing/publication describe that earlier checkpoint.
+
 **Result: normal first-install and basic-command gate passed.** No implementation,
 packaging configuration, workflow or test fix was necessary. The candidate is ready
 for an owner-authorized local Experimental source commit with the documented limits.

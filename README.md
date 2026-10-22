@@ -1,13 +1,14 @@
-# Research Review Agent — V1.1 Experimental (release candidate)
+# Research Review Agent — V1.1 Experimental
 
 A topic-neutral research-review workflow with explicit human decisions and traceable evidence, from a research question to source-grounded writing.
 
 **Experimental, not a fully autonomous researcher or a completed systematic-review service.** The Python CLI manages state, provenance, schemas and gates. Codex or a researcher develops the protocol, interprets papers and writes arguments using the bundled procedures. A parser does not perform scientific reasoning, and validation is not scientific approval.
 
-**Publication status:** V1.1 is prepared locally, not yet committed, merged, tagged or
-released. The current GitHub `main` snapshot is V1, not this V1.1 candidate. Until the
-owner publishes an explicit V1.1 revision, downloading `main` does not install these
-new capabilities. No open-source license has been selected.
+**Experimental pre-release:** use the
+[v1.1-experimental release page](https://github.com/slimseal/research-review-agent/releases/tag/v1.1-experimental)
+for the tagged source snapshot. This is not a stable release or a scientifically
+validated systematic-review service. Original project software and documentation
+are available under the [MIT License](LICENSE); third-party rights are separate.
 
 **New here?** [Beginner Quick Start](docs/beginner-quick-start.md) →
 [Start-review prompt](prompts/start-review.md). You supply the question and research
@@ -61,7 +62,7 @@ See [final release gate](docs/V1_1_FINAL_RELEASE_GATE.md).
 
 ## Beginner Quick Start
 
-1. Download the owner-published revision, extract it, and open the folder containing `AGENTS.md` in Codex. During preparation, V1.1 is available only in the maintainer's local branch.
+1. Download **Source code (zip)** from the [Experimental release](https://github.com/slimseal/research-review-agent/releases/tag/v1.1-experimental), extract it, and open the folder containing `AGENTS.md` in Codex. Use the tag for a reproducible version; `main` may change later.
 2. Install Python 3.11+ and follow [installation](docs/installation.md), or ask Codex to explain and perform the local setup after your permission. Codex itself needs your normal access/account; the Python package needs no model API key.
 3. Paste: **“My Research Question is […]. Follow AGENTS.md. Start in Standard mode, recommend suitable lawful literature sources, draft my Protocol, and show one source/query/budget plan for confirmation. Do not sign approvals for me.”**
 4. Review the Protocol and source plan. Codex performs authorized technical requests only after the applicable prerequisites pass. Confirm scientific reviews separately when asked.
@@ -217,6 +218,11 @@ Tests and test fixtures are retained. Fictional HTTP/PDF fixtures do not establi
 
 ## License and status
 
-**No open-source license has been selected or granted by this repository.** Public visibility must not be described as an open-source license. The owner must decide licensing and confirm applicable source-material rights separately. Third-party papers and dependencies retain their respective rights.
+Original project software and documentation are licensed under the **[MIT License](LICENSE)**,
+Copyright (c) 2026 slimseal. This does not relicense third-party papers, quoted source
+material, provider datasets or dependencies, nor grant API/full-text access or
+redistribution rights. See [third-party rights and dependency notices](docs/third-party-notices.md).
 
-“V1.1 Experimental” is a product/release-candidate label. Package metadata remains `0.1.0.dev0`; it is not a PyPI 1.1 release. This preparation creates no commit, GitHub Release, tag or production-readiness claim. Visibility, licensing and publication require the owner's separate decisions.
+“V1.1 Experimental” is the product milestone and GitHub pre-release label. Package
+metadata remains `0.1.0.dev0`; it is not a PyPI 1.1 release or a production-readiness claim.
+No binary/wheel assets or private research data are distributed with this release.

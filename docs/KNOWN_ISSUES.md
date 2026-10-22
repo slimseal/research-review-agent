@@ -18,7 +18,7 @@ Historical results below remain historical, not a scientific approval record.
 | Identity confidence | Live ERIC/OpenAIRE duplicate was a moderate-confidence title/author/year match. Three OpenAIRE multi-ID aggregates remain unresolved; exact DOI/PMID/PMCID contracts also use offline fixtures, not clean live crosswalk proof. |
 | Relevance | Coverage counts are not scientific relevance evaluation; initial live results include out-of-scope candidates. |
 | Scientific acceptance | No real multi-paper, all-Gates-approved end-to-end systematic review has been completed. Independent scientific audit is not replaced by tests. |
-| Distribution | V1.1 not yet committed/released; package version remains 0.1.0.dev0. No license selected. Do not advertise an open-source licensed 1.1 package. |
+| Distribution | V1.1 Experimental is a source pre-release under MIT; package version remains 0.1.0.dev0, not PyPI 1.1. Third-party content is not relicensed and no binary assets are supplied. |
 | Installation scope | Final normal online installation passed in two fresh isolated environments (macOS / Python 3.13.2), including the PDF extra and installed CLI. The earlier offline backend failure was environmental, not a required offline-install guarantee. Other OS/Python combinations are not verified. See [final gate](V1_1_FINAL_RELEASE_GATE.md). |
 
 | Area | Observed limitation |
@@ -43,4 +43,6 @@ Writing validation reported `DUPLICATE_REFERENCE_TITLE`. A same-context self-aud
 
 Historical draft examples are supplied for inspection and existing fixture checks. Host-specific paths have been replaced with relative paths in the public behavior manifest. Private command transcripts and checksummed event journals are not distributed; they were not rewritten to manufacture a portable research history. These examples cannot be used as recovery archives or proof of genuine human approval.
 
-No license has been selected. Before presenting this snapshot as open-source or production-ready, the owner must separately resolve licensing/source rights and the relevant reliability and review requirements. None of those claims is made by this experimental demonstration.
+Original project material uses [MIT](../LICENSE); [third-party rights](third-party-notices.md)
+remain separate. Licensing does not establish production readiness, scientific
+accuracy, full-text redistribution permission or completed human research review.

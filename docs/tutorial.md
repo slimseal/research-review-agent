@@ -5,7 +5,8 @@ operate the commands below. You need not learn the phase numbers or APIs first.
 Choose [Standard or Comprehensive](search-modes.md) as a planning preference, not
 a CLI flag. Database configuration is in [its separate guide](database-access.md);
 Scholar instructions are [here](google-scholar-supplement.md), and common errors
-are [here](troubleshooting.md). V1.1 is currently a local release candidate, not yet on main.
+are [here](troubleshooting.md). For a fixed V1.1 source snapshot, use the
+[Experimental pre-release](https://github.com/slimseal/research-review-agent/releases/tag/v1.1-experimental).
 
 After genuinely reviewed evidence and synthesis, continue with [Writing, tracing, bibliography and independent audit](writing-tooling.md) for Phase 13–18. This extends the same controller; it never supplies missing upstream approvals.
 

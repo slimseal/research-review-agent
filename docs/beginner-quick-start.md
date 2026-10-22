@@ -9,8 +9,9 @@ Codex 按项目规则操作工具，不能代替你签署审批。
 （Code → Download ZIP，解压；会使用 Git 也可 clone）。在 Codex 打开包含
 `AGENTS.md`、`README.md` 和 `research_review_agent/` 的根目录，不要只打开一个 PDF。
 
-**当前 V1.1 仍是本地发布候选：GitHub main 还是 V1。** 等维护者明确发布 V1.1
-修订后再下载对应版本；不要把不存在的分支或 Release 当作可下载成果。
+建议从 [v1.1-experimental 预发布页面](https://github.com/slimseal/research-review-agent/releases/tag/v1.1-experimental)
+下载 **Source code (zip)**，以固定版本开始；main 后续可能变化。此为 MIT 许可的
+Experimental 源码，不是稳定产品或已通过完整学术验收的系统综述工具。
 
 ## 2. 一次环境准备
 
