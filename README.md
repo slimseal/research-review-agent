@@ -1,14 +1,26 @@
-# Research Review Agent — V1 Experimental
+# Research Review Agent — V1.1 Experimental (release candidate)
 
 A topic-neutral research-review workflow with explicit human decisions and traceable evidence, from a research question to source-grounded writing.
 
 **Experimental, not a fully autonomous researcher or a completed systematic-review service.** The Python CLI manages state, provenance, schemas and gates. Codex or a researcher develops the protocol, interprets papers and writes arguments using the bundled procedures. A parser does not perform scientific reasoning, and validation is not scientific approval.
 
+**Publication status:** V1.1 is prepared locally, not yet committed, merged, tagged or
+released. The current GitHub `main` snapshot is V1, not this V1.1 candidate. Until the
+owner publishes an explicit V1.1 revision, downloading `main` does not install these
+new capabilities. No open-source license has been selected.
+
+**New here?** [Beginner Quick Start](docs/beginner-quick-start.md) →
+[Start-review prompt](prompts/start-review.md). You supply the question and research
+scope; Codex handles commands and proposes a source/budget plan. No database expertise
+or multiple API keys is required at the start. Genuine scientific approvals remain yours.
+
 ## What is included
 
 - All **19 phases (0–18)** in one authoritative [workflow registry](workflow/phases.json), with [ordinary Markdown procedures](workflow/procedures/README.md).
 - Research-question initialization, draft Protocols, controlled pre-approval amendments, state journals and recovery.
-- Crossref/OpenAlex metadata adapters, citation expansion, conservative identity resolution and recorded coverage limits.
+- Metadata adapters for Crossref, OpenAlex, PubMed, Europe PMC, Semantic Scholar, ERIC, arXiv and OpenAIRE Graph v3, with endpoint-scoped access checks and bounded request receipts. See [Batch 1](docs/V1_1_VALIDATION.md) and [Batch 2 live integration results](docs/V1_1_BATCH2_VALIDATION.md).
+- Google Scholar **manual** supplementary planning: 3–5 Agent-authored queries, Chinese instructions, blank recording templates and separate coverage accounting. No automated Scholar search or candidate import.
+- Citation expansion, conservative identity resolution and recorded coverage limits.
 - Authorized PDF acquisition/local import, DocumentVersions, SHA-256, page parsing and SourceAnchors.
 - Versioned title/abstract/full-text screening proposals, human review records and coverage checks.
 - Structured Reading Notes, multiple Evidence Items per paper, composable domain extensions and source tracing.
@@ -40,7 +52,26 @@ python -m pip install -e '.[pdf]'
 
 This pins `pypdf==6.20.1`; installation can require network access. A separate local PDF viewer/renderer is needed for visual checking of tables and glyphs. Missing parser support is reported, not replaced with model memory. See [installation](docs/installation.md) and [external dependencies](docs/external-dependencies.md).
 
-## Quick Start: create a draft, not an approval
+**Final installation gate passed:** on macOS / Python 3.13.2, two fresh isolated
+virtual environments installed the complete candidate source using normal online
+build isolation: editable core and regular installation with the PDF extra.
+CLI startup and offline planning checks passed outside the source folder.
+This does not certify every supported Python/OS combination or live database access.
+See [final release gate](docs/V1_1_FINAL_RELEASE_GATE.md).
+
+## Beginner Quick Start
+
+1. Download the owner-published revision, extract it, and open the folder containing `AGENTS.md` in Codex. During preparation, V1.1 is available only in the maintainer's local branch.
+2. Install Python 3.11+ and follow [installation](docs/installation.md), or ask Codex to explain and perform the local setup after your permission. Codex itself needs your normal access/account; the Python package needs no model API key.
+3. Paste: **“My Research Question is […]. Follow AGENTS.md. Start in Standard mode, recommend suitable lawful literature sources, draft my Protocol, and show one source/query/budget plan for confirmation. Do not sign approvals for me.”**
+4. Review the Protocol and source plan. Codex performs authorized technical requests only after the applicable prerequisites pass. Confirm scientific reviews separately when asked.
+5. Read the coverage report; optionally perform the guided Scholar supplement. Continue screening, lawful full-text work and extraction under the existing Gates.
+
+You do not need to learn all 19 phases or write CLI commands before starting.
+[Beginner guide](docs/beginner-quick-start.md) · [Database setup](docs/database-access.md) ·
+[Scholar guide](docs/google-scholar-supplement.md) · [Common errors](docs/troubleshooting.md).
+
+### Optional CLI walkthrough: create a draft, not an approval
 
 ```bash
 rragent init \
@@ -55,7 +86,7 @@ rragent phase-context --project reviews/my-review --phase 0
 
 Initialization creates a structured blank draft. It does **not** produce a completed protocol or execute a literature search. Open this repository as the Codex workspace and ask:
 
-> Follow AGENTS.md and the registered workflow for reviews/my-review. Develop a substantive Phase 0 Protocol from my research question, using an appropriate research design rather than a fixed PICO template. Record unresolved choices. Do not approve the Protocol, search, download or advance a phase. Stop for my review.
+> Follow AGENTS.md and the registered workflow for reviews/my-review. Recommend complementary literature sources for my question, respecting any database choices or exclusions I provide. Present a short Literature Source Plan and combined access/query budget for my confirmation; do not require optional API keys to begin. Develop a substantive Phase 0 Protocol from my research question, using an appropriate research design rather than a fixed PICO template. Record unresolved choices. Do not approve the Protocol, search, download or advance a phase. Stop for my review.
 
 Then inspect the populated draft:
 
@@ -65,6 +96,59 @@ rragent validate --project reviews/my-review --require-substantive-protocol
 ```
 
 Human approval is a separate deliberate operation documented in the [tutorial](docs/tutorial.md), not part of this quick start. Continue through `next` → `phase-context` → the registered procedure → validation. Do not advance around reported blockers.
+
+## Choose Your Literature Sources — without knowing every database
+
+Give Codex your **Research Question and necessary scope**. The Agent recommends complementary databases, explains access gaps, and asks you to confirm the source/query plan and budget once. Explicit choices and exclusions always take priority. Ordinary requests within that authorization do not require repeated approval; scientific Protocol and quality-Gate reviews still do.
+
+**[Start a review](prompts/start-review.md)** · **[Assess database access](prompts/connect-database.md)** · [Access/setup guide](docs/database-access.md)
+
+### Standard and Comprehensive
+
+These are **documented Codex planning conventions**, not new CLI flags, automatic
+presets or different scientific Gates. See [search modes](docs/search-modes.md).
+
+- **Standard:** propose a small complementary set (usually 2–3 suitable supported sources), bounded initial pages and explicit gaps. No implicit search budget.
+- **Comprehensive:** propose broader discipline/language/design coverage, more query variants, relevant lawful sources and manual supplements within a separately confirmed budget. **It does not guarantee all literature or saturation.** Unsupported/unauthorized sources remain gaps, not imaginary connections.
+
+### Actual implementation and observed access
+
+The following are saved **2026-10-22** observations, not new live checks or guarantees:
+
+| Category | Sources | Evidence / limits |
+|---|---|---|
+| A — Live retrieval succeeded | Crossref, PubMed, Europe PMC, ERIC, arXiv, OpenAIRE Graph v3 | Bounded anonymous metadata queries succeeded; relevance/full-text rights not established. |
+| B — Implemented, access constrained | OpenAlex; Semantic Scholar | Latest saved search outcomes: quota exhaustion; HTTP 429 rate limiting. Offline tests passed; no new successful live result claimed. Keys/entitlement are operation-specific. |
+| C — Institutional and not implemented | Scopus, Web of Science, PsycINFO | Need an actual adapter and valid institutional/API entitlement; cannot currently execute these searches here. |
+| D — Manual | Google Scholar; unsupported specialist sources such as CNKI | Scholar planning/templates/reporting work offline; the user searches. Button is an optional browser extension, **not an Agent connector**. |
+| E — Future/deferred | CORE, DataCite, Unpaywall integration; personal libraries and bulk import | Not delivered as new working search adapters. Existing OpenCitations citation tooling is separate from keyword discovery. [Roadmap](docs/provider-roadmap.md). |
+
+> My Research Question is: How do novice teachers describe developing classroom authority? Recommend complementary sources and any education-specific manual supplements. Prefer lawful no-key access. Show me a short Literature Source Plan and request budget before searching. Do not require optional keys, enroll me in services or approve research decisions for me.
+
+| Access tier | Providers / boundary |
+|---|---|
+| A — No key / low configuration | Crossref, PubMed, Europe PMC, ERIC, arXiv, OpenAIRE JSON Graph v3; OpenAlex basic first-page search and Semantic Scholar public relevance search are implemented but can be quota/rate limited. |
+| B — Optional/required free setup | OpenAlex key for subsequent cursor pages and quota inspection; optional NCBI and Semantic Scholar keys. Configure only when needed and verify the selected endpoint. |
+| C — Institutional access | Scopus, Web of Science advanced APIs, PsycINFO: entitlement review required and adapters **not implemented** in this branch. Do not block other authorized sources. |
+
+The Literature Source Plan distinguishes **Recommended and available**, **Available after free setup**, **Requires institutional access**, **Manual supplementary search**, and **Not implemented or not verified**. Offline configuration is explicitly `not_verified`, not evidence of connectivity. A recent successful probe applies only to its endpoint/credential context.
+
+`source-plan` proposes a draft offline; Codex must tailor its heuristic recommendations to the actual discipline. `provider-status --probe` checks explicitly selected endpoints within a recorded budget. `literature-coverage` reports exact runs, overlaps, provider-only candidate IDs, errors and unexecuted sources. Counts do not establish relevance or adequate coverage.
+
+**Real check on 2026-10-22:** Crossref, PubMed and Europe PMC each returned one metadata record anonymously. OpenAlex returned quota exhaustion; Semantic Scholar returned rate limiting. Six actual requests total, no retries. The latter two are **not** successful zero-result searches. See [validation and remaining work](docs/V1_1_VALIDATION.md).
+
+**Batch 2, same date:** ERIC, arXiv and OpenAIRE Graph v3 returned real metadata without keys. A school/health multi-source test produced 51 observations, 47 canonical candidates, one duplicate observation and three unresolved OpenAIRE aggregate identities. A separate arXiv computing corpus contains 10 preprints; it is not mixed into the school/health corpus. Nine HTTP requests total, no retries or extra pages. Semantic Scholar again returned 429. This validates integration, **not relevance, eligibility or sufficient review coverage**. [Results, limitations and identity corrections](docs/V1_1_BATCH2_VALIDATION.md).
+
+An OpenAlex quota-endpoint 401 must not be generalized to anonymous search. Agent-assisted free-key registration is officially documented, but this kit only documents the consent/activation path; it has not registered anyone or implemented automatic enrollment. No email use, paid access or credential sharing without explicit authorization.
+
+Authorized single-PDF import remains available in Phase 5. [Personal-library and bulk import](docs/future/personal-library-support.md) remain deferred. Use the [Scholar prompt](prompts/google-scholar-supplement.md) and [manual guide](docs/google-scholar-supplement.md) for supplementary discovery. No private PDFs, paths, exports, keys or approval identities belong in GitHub.
+
+Scholar uses `not_performed`, `performed_as_reported` or `invalid_records`.
+It does **not** automatically determine `completed`/`incomplete`: `completed_scope`
+remains `not_assessed`, and unchecked queries are listed. Actual scope completion
+requires a separate human narrative review. Manual candidates stay `not_imported`
+and never inflate API Registry counts. Existing authorized Crossref `resolve-doi`
+is not a Scholar import interface.
 
 ## The workflow
 
@@ -110,13 +194,17 @@ Search and acquisition are explicit operations requiring appropriate workflow st
 - Legacy screening CSV compatibility and large-journal performance have known limitations.
 - Native lab exports may have generic review titles; always label provisional outputs explicitly.
 - Independent scientific evaluation and final human audit were not completed for the real single-paper demonstration. Lab work cannot complete formal research phases.
-- No guarantee is made that all source claims are correct or that every external service is available. No new full-suite or live integration run was performed solely for publication preparation.
+- Source recommendations are heuristics refined by Codex; retrieved relevance is not automatically evaluated. There is no turnkey one-command end-to-end scientifically approved review.
+- Per-run HTTP budgets are enforced, but no shared transactional all-provider budget executor exists; the Agent must allocate the confirmed total across runs/probes.
+- Scholar completion status and automatic manual-candidate Registry handoff remain incomplete as described above. Multi-page live retrieval and real keyed/institutional access have not been established by these small tests.
+- The current 436-test suite is checked in final integration; historical live results are reused without new scientific network requests. See [V1.1 acceptance](docs/V1_1_ACCEPTANCE_ZH.md). Test success is not scientific validation.
 
 See [known issues and validation scope](docs/KNOWN_ISSUES.md).
 
 ## Documentation and tests
 
-- [Installation](docs/installation.md) · [Tutorial](docs/tutorial.md) · [Architecture](docs/architecture.md)
+- [Beginner Quick Start](docs/beginner-quick-start.md) · [Installation](docs/installation.md) · [Technical tutorial](docs/tutorial.md) · [Architecture](docs/architecture.md)
+- [Search modes](docs/search-modes.md) · [Scholar supplement](docs/google-scholar-supplement.md) · [Troubleshooting](docs/troubleshooting.md) · [Draft V1.1 release notes](docs/V1_1_RELEASE_NOTES.md)
 - [Citation tooling](docs/citation-tooling.md) · [Document tooling](docs/document-tooling.md)
 - [Screening](docs/screening-tooling.md) · [Reading](docs/reading-tooling.md)
 - [Synthesis](docs/synthesis-tooling.md) · [Writing and audit](docs/writing-tooling.md)
@@ -131,4 +219,4 @@ Tests and test fixtures are retained. Fictional HTTP/PDF fixtures do not establi
 
 **No open-source license has been selected or granted by this repository.** Public visibility must not be described as an open-source license. The owner must decide licensing and confirm applicable source-material rights separately. Third-party papers and dependencies retain their respective rights.
 
-“V1 Experimental” is a descriptive snapshot label. Package metadata remains `0.1.0.dev0`; this preparation does not create a GitHub Release, tag or production-readiness claim.
+“V1.1 Experimental” is a product/release-candidate label. Package metadata remains `0.1.0.dev0`; it is not a PyPI 1.1 release. This preparation creates no commit, GitHub Release, tag or production-readiness claim. Visibility, licensing and publication require the owner's separate decisions.

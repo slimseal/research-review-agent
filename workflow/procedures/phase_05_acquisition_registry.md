@@ -11,12 +11,16 @@ Establish durable source identities and lawful access provenance so screening an
 
 ## Research operations
 
+Confirm the exact files and access scope before reading or copying PDFs into the private project. Source access is read-only by default; keep PDFs, private paths, notes and keys out of the kit repository and GitHub.
+
+The existing `document-import` accepts **one authorized PDF**, with version kind and an existing Paper ID or explicit unresolved identity. It retains the file hash, page count, version and actual attempt record. Formal import requires active Phase 5 and valid predecessors; possession of a file does not supply missing approvals or establish screening eligibility. Inspect identity conflicts and versions rather than merging by filename. This is not a batch/library connector.
+
 1. Normalize titles, authors, dates, publication venues and identifiers without overwriting conflicts.
 2. Assign one persistent `paper_id` per resolved intellectual work and document merged records.
 3. Attempt only lawful open-access or authorized retrieval paths.
 4. Record URL, retrieval source, date, license, availability and file hash for acquired files.
 5. Create bibliography records from verified metadata and flag incomplete fields.
-6. Use `rragent resolve-doi` for Crossref bibliographic reconciliation when a DOI is known; inspect `METADATA_RESOLUTIONS.jsonl` rather than silently choosing a conflicting value.
+6. Use `rragent resolve-doi` for Crossref bibliographic reconciliation only when the researcher separately authorized that external operation; a known DOI is not network permission. Inspect `METADATA_RESOLUTIONS.jsonl` rather than silently choosing a conflicting value. Do not use this as an automatic fallback from a different selected database.
 7. Treat Round 2C metadata registration as only the registry portion of this phase. Do not complete Phase 5 until every retained source also has an explicit lawful full-text acquisition or unavailable/manual-access status required by this procedure.
 8. Use `fulltext-discover --paper-id ... --url ...` for explicit publisher PDF links, then `document-acquire --candidate-id ... --authorization ...`; use `document-import --file ... --authorization ...` for researcher-supplied PDFs. These tools do not advance any phase.
 9. Record `03_library/ACQUISITION_REVIEW.json` with `reviewed_by`, `reviewed_at`, and a `papers` object keyed by paper ID. Each item needs `status` (`acquired`, `unavailable`, `manual_access_required`) and `basis`; acquired items need a valid matching `document_id`. Do not infer this review from download success.

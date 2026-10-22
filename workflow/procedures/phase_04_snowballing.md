@@ -12,6 +12,10 @@ Extend discovery through backward references, forward citations and related-sour
 
 ## Packaged execution
 
+Citation expansion requires a separately confirmed seed/provider/direction plan and request budget. Choosing a Phase 3 metadata-search database does not authorize another citation provider. Use only confirmed operations; never substitute another source automatically.
+
+**Current no-expansion gap:** the V1 registrar requires nonempty canonical seeds and a nonempty supported provider plan. Completion expects attempts for each planned path and current human stopping review. There is no implemented reviewed “not requested” completion route. If the researcher declines citation expansion, keep that decision, explain the block and stop this formal path; do not invent failed attempts, add dummy seeds, force an expansion or hand-edit completion flags. The 19-phase structure and Gates are unchanged.
+
 Follow `docs/citation-tooling.md` in a checkout. Installed clients use this procedure and CLI `--help`.
 
 1. Run `citation-seeds --project <path>`. Select registered identities with a reason for each. Legacy/manual CSV rows require explicit canonical reconciliation first; they are never silently replaced.

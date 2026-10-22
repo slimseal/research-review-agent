@@ -162,6 +162,28 @@ def validate_discovery_provenance(project_root: Path, require_runs: bool = False
             issues.append(Issue("error", "failed_run_without_error", str(path), run_id))
         if run["retrieval_status"] in {"complete", "complete_empty", "complete_with_limit", "replayed"} and run["errors"]:
             issues.append(Issue("error", "successful_run_with_errors", str(path), run_id))
+        # Old runs without HTTP ledgers remain readable. New ledgers add checks,
+        # never replace existing raw-response, Protocol or phase validation.
+        receipt_dir = project_root / "02_discovery/http" / run_id
+        if run.get("http_receipt_path"):
+            receipt_path = (project_root / run["http_receipt_path"]).resolve()
+            if project_root.resolve() not in receipt_path.parents:
+                issues.append(Issue("error", "discovery_http_integrity", str(path), "Unsafe HTTP receipt path"))
+                continue
+            receipt_dir = receipt_path.parent
+        receipt_file = receipt_dir / "budget.json"
+        if receipt_file.exists():
+            from .scholarly.request_budget import RecordedTransport
+            try:
+                receipt = json.loads(receipt_file.read_text())
+                transport = RecordedTransport(receipt_dir, max_requests=receipt["max_requests"],
+                                              max_attempts=receipt["max_attempts"])
+                for error in transport.validate():
+                    issues.append(Issue("error", "discovery_http_integrity", str(receipt_file), error))
+                if run.get("http_attempts", 0) != transport.used:
+                    issues.append(Issue("error", "discovery_http_count", str(receipt_file), run_id))
+            except (ValueError, KeyError, OSError, TypeError) as exc:
+                issues.append(Issue("error", "discovery_http_integrity", str(receipt_file), str(exc)))
     if require_runs and run_count == 0:
         issues.append(Issue("error", "empty_search_runs", str(path), "At least one recorded SearchRun is required."))
     return issues
@@ -480,7 +502,8 @@ def validate_phase(project_root: Path, phase: int, allow_example_data: bool = Fa
             _, search_rows = _read_csv(search_log_path)
             if not search_rows:
                 issues.append(Issue("error", "empty_search_log", str(search_log_path), "Phase 3 requires executed or explicitly failed search attempts."))
-            official_rows = [row for row in search_rows if row.get("database") in {"openalex", "crossref"}]
+            from .scholarly.access import SEARCH_PROVIDERS
+            official_rows = [row for row in search_rows if row.get("database") in SEARCH_PROVIDERS]
             if official_rows:
                 issues.extend(validate_discovery_provenance(project_root, require_runs=True))
     elif phase == 4:

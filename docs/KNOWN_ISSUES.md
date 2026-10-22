@@ -1,6 +1,25 @@
-# V1 Experimental: known issues and validation scope
+# V1.1 Experimental: known issues and validation scope
 
-This is a publication summary, not a new test run or a scientific approval record. Core implementation and tests were not changed for publication preparation.
+This documents retained V1 issues and V1.1 acceptance limits. Final integration
+reruns the existing 436 tests without changing implementation/tests or performing
+new scientific API requests. See [current acceptance](V1_1_ACCEPTANCE_ZH.md).
+Historical results below remain historical, not a scientific approval record.
+
+## V1.1 release-candidate limits
+
+| Area | Current boundary |
+|---|---|
+| Beginner autonomy | Codex guides setup, protocol drafting and per-provider operations; not a single-command autonomous review. No usability study with novice participants was conducted. |
+| Source modes | Standard/Comprehensive are planning guidance, not CLI presets or guarantees of sufficient coverage. |
+| Access | Latest OpenAlex search was quota-limited; Semantic Scholar returned 429. Keyed access, institutional entitlement and live multi-page behavior remain unverified in these runs. |
+| Total budget | Per-run/probe hard caps exist; no shared transactional source-plan executor. The Agent must account for the total authorized budget. |
+| Scholar completion | not_performed works; valid records give performed_as_reported, not completed. completed_scope stays not_assessed. No automatic completed/incomplete state or attested scope-closure interface; this requested acceptance point is **partial**, not passed. |
+| Manual handoff | Candidates remain not_imported; no automatic Scholar candidate import, formal provenance crosslink or duplicate resolution. Separate Crossref DOI reconciliation requires authorization and normal phase prerequisites. |
+| Identity confidence | Live ERIC/OpenAIRE duplicate was a moderate-confidence title/author/year match. Three OpenAIRE multi-ID aggregates remain unresolved; exact DOI/PMID/PMCID contracts also use offline fixtures, not clean live crosswalk proof. |
+| Relevance | Coverage counts are not scientific relevance evaluation; initial live results include out-of-scope candidates. |
+| Scientific acceptance | No real multi-paper, all-Gates-approved end-to-end systematic review has been completed. Independent scientific audit is not replaced by tests. |
+| Distribution | V1.1 not yet committed/released; package version remains 0.1.0.dev0. No license selected. Do not advertise an open-source licensed 1.1 package. |
+| Installation scope | Final normal online installation passed in two fresh isolated environments (macOS / Python 3.13.2), including the PDF extra and installed CLI. The earlier offline backend failure was environmental, not a required offline-install guarantee. Other OS/Python combinations are not verified. See [final gate](V1_1_FINAL_RELEASE_GATE.md). |
 
 | Area | Observed limitation |
 |---|---|
@@ -12,7 +31,7 @@ This is a publication summary, not a new test run or a scientific approval recor
 | Scientific review | The real demo has no completed independent evidence evaluation, final inclusion decision, independent claim-evidence audit or human final QC. |
 | Cross-study inference | The downstream real-source demo uses only one paper. Multi-study synthesis, reliable gaps and field-wide coverage are not established by it. |
 
-## What the existing demonstration established
+## What the historical V1 demonstration established
 
 The isolated real-paper run produced a 10-page reading record, 8 Evidence Items, 4 Claims, 14 claim-evidence links, an outline, a Section Brief and four draft paragraphs. Document, reading and synthesis structural checks passed. All four draft traces resolved to the source. Seven real-source integrity/negative checks were recorded as passing; these are not a scientific accuracy benchmark.
 

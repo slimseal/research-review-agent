@@ -11,6 +11,8 @@ Translate the approved protocol into a structured, domain-sensitive vocabulary m
 
 ## Research operations
 
+Honor the researcher's recorded database choice and the approved Protocol. Build concepts without defaulting to another provider. Any live vocabulary lookup requires its own authorized scope; proposed synonyms must not be reported as verified database indexing terms.
+
 1. Derive concept blocks from each subquestion and their logical relationships.
 2. Add synonyms, spelling variants, historical terms, discipline-specific labels and controlled vocabulary where justified.
 3. Separate homonyms and excluded senses with scope notes.

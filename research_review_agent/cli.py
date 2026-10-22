@@ -17,6 +17,9 @@ from .project import approve_protocol, initialize_project, load_schema_catalog, 
 from .scholarly.contracts import SearchRequest
 from .scholarly.pipeline import ScholarlyDiscoveryPipeline
 from .scholarly.providers import provider_configuration
+from .scholarly.access import SEARCH_PROVIDERS, probe_provider
+from .scholarly.request_budget import RecordedTransport
+from .scholarly.source_plan import source_plan, coverage_report
 from .state import load_state, recover_state
 from .validation import protocol_status, validate_project, validate_protocol
 from .workflow import evaluate_gates, gates_pass, next_action, phase_context, transition_phase
@@ -51,6 +54,8 @@ def _search_request(args: argparse.Namespace, project: Path, provider: str | Non
         max_pages=getattr(args, "max_pages", 1),
         cursor=getattr(args, "cursor", None),
         sort=getattr(args, "sort", None),
+        max_requests=getattr(args, "max_requests", None),
+        max_attempts=getattr(args, "max_attempts", 1),
     )
 
 
@@ -121,9 +126,9 @@ def build_parser() -> argparse.ArgumentParser:
     recover = sub.add_parser("recover", help="Restore state.json from the checksummed event journal")
     recover.add_argument("--project", required=True)
 
-    scholarly_search = sub.add_parser("scholarly-search", help="Run an approved Phase 3 OpenAlex or Crossref metadata search")
+    scholarly_search = sub.add_parser("scholarly-search", help="Run an approved Phase 3 metadata search with a bounded HTTP receipt ledger")
     scholarly_search.add_argument("--project", required=True)
-    scholarly_search.add_argument("--provider", required=True, choices=["openalex", "crossref"])
+    scholarly_search.add_argument("--provider", required=True, choices=SEARCH_PROVIDERS)
     scholarly_search.add_argument("--query", required=True)
     scholarly_search.add_argument("--strategy-version", required=True)
     scholarly_search.add_argument("--filter", action="append", default=[], metavar="KEY=VALUE")
@@ -132,11 +137,15 @@ def build_parser() -> argparse.ArgumentParser:
     scholarly_search.add_argument("--cursor")
     scholarly_search.add_argument("--sort")
     scholarly_search.add_argument("--resume-run")
+    scholarly_search.add_argument("--max-requests", type=int, help="Total possible sends for this run, including subrequests/retries; default one per page, two for PubMed")
+    scholarly_search.add_argument("--max-attempts", type=int, default=1, help="Attempts per endpoint, within total budget; default no retries")
 
     doi = sub.add_parser("resolve-doi", help="Resolve and reconcile one DOI through Crossref during Phase 3 or 5")
     doi.add_argument("--project", required=True)
     doi.add_argument("--doi", required=True)
     doi.add_argument("--strategy-version", required=True)
+    doi.add_argument("--max-requests", type=int, default=1)
+    doi.add_argument("--max-attempts", type=int, default=1)
 
     replay = sub.add_parser("replay-search", help="Replay normalization and registration from checksummed raw responses")
     replay.add_argument("--project", required=True)
@@ -144,7 +153,27 @@ def build_parser() -> argparse.ArgumentParser:
 
     sub.add_parser("schema", help="Print the universal/extension schema contract")
     sub.add_parser("capabilities", help="Report packaged core features and unavailable external adapters")
-    sub.add_parser("provider-status", help="Report provider configuration without exposing credentials")
+    provider_status = sub.add_parser("provider-status", help="Offline configuration by default; explicit --probe checks only the selected endpoint")
+    provider_status.add_argument("--provider")
+    provider_status.add_argument("--probe", action="store_true")
+    provider_status.add_argument("--operation", choices=["search", "quota"], default="search")
+    provider_status.add_argument("--anonymous", action="store_true")
+    provider_status.add_argument("--receipt-dir", type=Path)
+    provider_status.add_argument("--max-requests", type=int)
+    plan = sub.add_parser("source-plan", help="Propose sources offline from RQ/domain; never approve or search")
+    plan.add_argument("--question", required=True)
+    plan.add_argument("--domain", default="")
+    plan.add_argument("--include", action="append", default=[])
+    plan.add_argument("--exclude", action="append", default=[])
+    plan.add_argument("--output", type=Path)
+    plan.add_argument("--access-report", type=Path, help="Optional recent saved search-endpoint probe report; quota status is not search status")
+    scholar = sub.add_parser("scholar-prepare", help="Render Agent-authored manual Scholar plan and blank logs offline; no search/import")
+    scholar.add_argument("--plan", type=Path, required=True)
+    scholar.add_argument("--output", type=Path, required=True, help="New directory; refuses overwrite")
+    coverage = sub.add_parser("literature-coverage", help="Read-only multi-provider coverage accounting; not scientific sufficiency")
+    coverage.add_argument("--project", required=True)
+    coverage.add_argument("--plan", type=Path)
+    coverage.add_argument("--output", type=Path)
     add_commands(sub)
     add_citation_commands(sub)
     add_screening_commands(sub)
@@ -284,7 +313,33 @@ def _main(argv: list[str] | None = None) -> int:
             print(json.dumps({"capabilities": capability_report()}, ensure_ascii=False, indent=2))
             return 0
         if args.command == "provider-status":
-            print(json.dumps({"providers": provider_configuration()}, ensure_ascii=False, indent=2))
+            if args.probe:
+                if not args.provider or not args.receipt_dir or args.max_requests is None:
+                    raise ValueError("PROBE_REQUIRES_PROVIDER_RECEIPT_DIR_AND_EXPLICIT_REQUEST_BUDGET")
+                transport = RecordedTransport(args.receipt_dir, max_requests=args.max_requests)
+                result = probe_provider(args.provider, transport, operation=args.operation, anonymous=args.anonymous)
+            else:
+                config = provider_configuration()
+                result = {"providers": {args.provider: config.get(args.provider, {"status": "not_implemented"})} if args.provider else config}
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return 0 if not args.probe or result["status"] == "available" else 2
+        if args.command == "scholar-prepare":
+            from .scholarly.manual_scholar import prepare
+            result = prepare(json.loads(args.plan.read_text(encoding="utf-8")), args.output)
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return 0
+        if args.command in {"source-plan", "literature-coverage"}:
+            if args.command == "source-plan":
+                result = source_plan(args.question, args.domain, args.include, args.exclude,
+                                     json.loads(args.access_report.read_text()) if args.access_report else None)
+            else:
+                result = coverage_report(_project_path(args.project), json.loads(args.plan.read_text()) if args.plan else None)
+            rendered = json.dumps(result, ensure_ascii=False, indent=2)
+            if args.output:
+                # Never overwrite an existing confirmed plan or research artifact.
+                with args.output.open("x", encoding="utf-8") as handle:
+                    handle.write(rendered + "\n")
+            print(rendered)
             return 0
     except DocumentError as exc:
         print(json.dumps({"status": "failed", "error": exc.to_dict()}, ensure_ascii=False))
